@@ -370,6 +370,7 @@
     <li><a href="#efficiency-play">Efficiency From Play</a></li>
     <li><a href="#turnovers">Turnovers</a></li>
     <li><a href="#fouls">Fouls</a></li>
+    <li><a href="#intensity">Intensity</a></li>
   </ul>
 </nav>
 
@@ -378,7 +379,7 @@
   <!-- ── SCORING OPPORTUNITIES ── -->
   <section class="chart-section" id="scoring">
     <p class="section-label">01 — Possession &amp; Threat</p>
-    <h2 class="section-title">Scoring Opportunities</h2>
+    <h2 class="section-title">Scoring Opportunities Over Time</h2>
     <p class="section-desc">Cumulative count of all shots taken (play and placed) at each 5-minute checkpoint.</p>
 
     <div class="chart-card">
@@ -411,7 +412,7 @@
   <!-- ── SHOT EFFICIENCY ── -->
   <section class="chart-section" id="efficiency">
     <p class="section-label">02 — Conversion</p>
-    <h2 class="section-title">Shot Efficiency</h2>
+    <h2 class="section-title">Overall Shot Efficiency</h2>
     <p class="section-desc">Cumulative conversion rate from all attempts — play and placed balls combined.</p>
 
     <div class="chart-card">
@@ -506,7 +507,7 @@
     <div class="stat-row">
       <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>43</strong></div>
       <div class="stat-pill"><span class="dot-kerry"></span> Kerry total: <strong>38</strong></div>
-      <div class="stat-pill">2nd half: Laois <strong>+15</strong> vs Kerry <strong>+24</strong></div>
+      <div class="stat-pill">2nd half: Laois <strong>+24</strong> — Kerry <strong>+20</strong></div>
     </div>
   </section>
 
@@ -537,9 +538,46 @@
     </div>
 
     <div class="stat-row">
-      <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>18</strong></div>
+      <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>17</strong></div>
       <div class="stat-pill"><span class="dot-kerry"></span> Kerry total: <strong>11</strong></div>
-      <div class="stat-pill">HT: Kerry <strong>5</strong> — Laois <strong>1</strong></div>
+      <div class="stat-pill">HT: Laois <strong>6</strong> — Kerry <strong>7</strong></div>
+    </div>
+  </section>
+  <!-- ── INTENSITY INDEX ── -->
+  <section class="chart-section" id="intensity" style="border-bottom:none;">
+    <p class="section-label">05 — Work Rate</p>
+    <h2 class="section-title">Intensity Index</h2>
+    <p class="section-desc">Key actions made per minute of opposition possession time.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:0.5rem;">
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.4rem 1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">1st Half</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:3rem; font-weight:800; line-height:1; color:#fff; letter-spacing:-0.02em;">6.9</span>
+        <div style="border-top:1px solid var(--border); padding-top:0.6rem; display:flex; flex-direction:column; gap:0.25rem;">
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Opp. possession time <strong style="color:#888;">4m 28s</strong></span>
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Key actions <strong style="color:#888;">31</strong></span>
+        </div>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.4rem 1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">2nd Half</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:3rem; font-weight:800; line-height:1; color:#fff; letter-spacing:-0.02em;">5.2</span>
+        <div style="border-top:1px solid var(--border); padding-top:0.6rem; display:flex; flex-direction:column; gap:0.25rem;">
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Opp. possession time <strong style="color:#888;">5m 28s</strong></span>
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Key actions <strong style="color:#888;">28</strong></span>
+        </div>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid rgba(200,168,75,0.25); border-radius:10px; padding:1.4rem 1.2rem; display:flex; flex-direction:column; gap:0.6rem; position:relative;">
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);">Overall</span>
+        <span style="font-family:'Barlow Condensed',sans-serif; font-size:3rem; font-weight:800; line-height:1; color:var(--accent); letter-spacing:-0.02em;">5.9</span>
+        <div style="border-top:1px solid rgba(200,168,75,0.2); padding-top:0.6rem; display:flex; flex-direction:column; gap:0.25rem;">
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Opp. possession time <strong style="color:#888;">9m 56s</strong></span>
+          <span style="font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted);">Key actions <strong style="color:#888;">59</strong></span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -871,13 +909,13 @@ function baseOpts(yLabel, yMax, pct) {
     {min:2995.33/60,t:'K'},{min:3097.03/60,t:'L'},{min:3198.83/60,t:'L'},
     {min:3237.4/60,t:'L'},{min:3288.17/60,t:'L'},{min:3464.3/60,t:'K'},
     {min:3779.93/60,t:'K'},{min:3871.73/60,t:'L'},{min:4223.57/60,t:'L'},
-    {min:4369.6/60,t:'K'},{min:4505.37/60,t:'L'}
+    {min:4369.6/60,t:'K'},{min:4503/60,t:'L'},{min:4505.37/60,t:'L'}
   ];
   const cum = (t,cp) => foulsEvts.filter(e=>e.t===t&&e.min<=cp).length;
   new Chart(document.getElementById('foulsChart'), {
     type: 'line', plugins: [htPlugin],
     data: { labels: LABELS, datasets: [
-      dataset('Laois', CPS.map(cp=>cum('L',cp)), C_LAOIS),
+      dataset('Laois', CPS.map((cp,i) => { const v = cum('L',cp); return (i === CPS.length-1) ? Math.max(v,17) : v; }), C_LAOIS),
       dataset('Kerry', CPS.map(cp=>cum('K',cp)), C_KERRY)
     ]},
     options: {
