@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laois v Kerry — NHL Division 2 Final 2026 | Match Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --laois: #1a3a8f;
+      --laois-light: #d6e4f7;
+      --kerry: #1a6b3a;
+      --kerry-light: #d4eddf;
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1f1f1f;
+      --border: rgba(255,255,255,0.08);
+      --text: #f0ede6;
+      --muted: #888;
+      --accent: #c8a84b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(26,58,143,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(26,107,58,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .header-competition {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .scoreboard {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1rem, 4vw, 3rem);
+      margin: 1.5rem 0 2rem;
+      flex-wrap: wrap;
+    }
+
+    .team-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .team-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .team-name.laois { color: #5b8def; }
+    .team-name.kerry { color: #4db87a; }
+
+    .team-score {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 10vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .team-score.laois { color: #fff; }
+    .team-score.kerry { color: #fff; }
+
+    .score-divider {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1;
+      padding-top: 1.2rem;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .header-meta span { white-space: nowrap; }
+    .header-meta .sep { color: rgba(255,255,255,0.15); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1rem;
+      overflow-x: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      min-width: max-content;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.9rem 1.1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+
+    /* ── SECTION ── */
+    .chart-section {
+      padding: 3.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chart-section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      font-style: italic;
+      max-width: 560px;
+    }
+
+    /* ── CHART CARD ── */
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .chart-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .chart-title-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .legend {
+      display: flex;
+      gap: 1.25rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    .leg-line {
+      width: 20px; height: 2.5px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .leg-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      border: 2px solid var(--surface);
+      display: inline-block;
+    }
+
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(240px, 40vw, 320px);
+    }
+
+    .chart-footer {
+      margin-top: 0.75rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: #555;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ── STAT PILLS ── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .stat-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.9rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stat-pill strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .dot-laois { width: 7px; height: 7px; border-radius: 50%; background: #5b8def; flex-shrink: 0; }
+    .dot-kerry { width: 7px; height: 7px; border-radius: 50%; background: #4db87a; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="header-eyebrow">Match Analysis</p>
+  <p class="header-competition">NHL Division 2 Final &nbsp;·&nbsp; 28 March 2026</p>
+
+  <div class="scoreboard">
+    <div class="team-block">
+      <span class="team-name laois">Laois</span>
+      <span class="team-score laois">3-18</span>
+    </div>
+    <div class="score-divider">—</div>
+    <div class="team-block">
+      <span class="team-name kerry">Kerry</span>
+      <span class="team-score kerry">0-13</span>
+    </div>
+  </div>
+
+  <div class="header-meta">
+    <span>O'Moore Park</span>
+    <span class="sep">·</span>
+    <span>Ref: Niall Malone</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#scoring">Scoring</a></li>
+    <li><a href="#efficiency">Shot Efficiency</a></li>
+    <li><a href="#efficiency-play">Efficiency From Play</a></li>
+    <li><a href="#turnovers">Turnovers</a></li>
+    <li><a href="#fouls">Fouls</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ── SCORING OPPORTUNITIES ── -->
+  <section class="chart-section" id="scoring">
+    <p class="section-label">01 — Possession &amp; Threat</p>
+    <h2 class="section-title">Scoring Opportunities</h2>
+    <p class="section-desc">Cumulative count of all shots taken (play and placed) at each 5-minute checkpoint.</p>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title-text">Cumulative scoring opportunities</span>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="leg-line" style="background:#5b8def;"></span>
+            <span class="leg-dot" style="background:#5b8def;"></span>
+            <span style="color:#9ab8f5;">Laois</span>
+          </div>
+          <div class="legend-item">
+            <span class="leg-line" style="background:#4db87a;"></span>
+            <span class="leg-dot" style="background:#4db87a;"></span>
+            <span style="color:#7dd4a0;">Kerry</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="scoringChart"></canvas></div>
+      <p class="chart-footer">Dashed line = half time (38 min) &nbsp;·&nbsp; Hover / tap for totals</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>40 shots</strong></div>
+      <div class="stat-pill"><span class="dot-kerry"></span> Kerry total: <strong>29 shots</strong></div>
+      <div class="stat-pill">Half-time shots: <strong>Laois 22 — Kerry 13</strong></div>
+    </div>
+  </section>
+
+  <!-- ── SHOT EFFICIENCY ── -->
+  <section class="chart-section" id="efficiency">
+    <p class="section-label">02 — Conversion</p>
+    <h2 class="section-title">Shot Efficiency</h2>
+    <p class="section-desc">Cumulative conversion rate from all attempts — play and placed balls combined.</p>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title-text">Cumulative shot efficiency (%)</span>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="leg-line" style="background:#5b8def;"></span>
+            <span class="leg-dot" style="background:#5b8def;"></span>
+            <span style="color:#9ab8f5;">Laois</span>
+          </div>
+          <div class="legend-item">
+            <span class="leg-line" style="background:#4db87a;"></span>
+            <span class="leg-dot" style="background:#4db87a;"></span>
+            <span style="color:#7dd4a0;">Kerry</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="effChart"></canvas></div>
+      <p class="chart-footer">Dashed line = half time (38 min) &nbsp;·&nbsp; Hover / tap for exact fractions</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-pill"><span class="dot-laois"></span> Laois HT: <strong>59.1%</strong> (13/22)</div>
+      <div class="stat-pill"><span class="dot-kerry"></span> Kerry HT: <strong>61.5%</strong> (8/13)</div>
+      <div class="stat-pill"><span class="dot-laois"></span> Laois final: <strong>52.5%</strong> (21/40)</div>
+      <div class="stat-pill"><span class="dot-kerry"></span> Kerry final: <strong>44.8%</strong> (13/29)</div>
+    </div>
+  </section>
+
+  <!-- ── SHOT EFFICIENCY FROM PLAY ── -->
+  <section class="chart-section" id="efficiency-play">
+    <p class="section-label">02b — Conversion From Play</p>
+    <h2 class="section-title">Shot Efficiency From Play</h2>
+    <p class="section-desc">Cumulative percentage of shots from play only (goals + points) converted — placed balls excluded. We dropped sharply from play after half time.</p>
+
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title-text">Cumulative shot efficiency — from play only (%)</span>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="leg-line" style="background:#5b8def;"></span>
+            <span class="leg-dot" style="background:#5b8def;"></span>
+            <span style="color:#9ab8f5;">Laois</span>
+          </div>
+          <div class="legend-item">
+            <span class="leg-line" style="background:#4db87a;"></span>
+            <span class="leg-dot" style="background:#4db87a;"></span>
+            <span style="color:#7dd4a0;">Kerry</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="effPlayChart"></canvas></div>
+      <p class="chart-footer">Dashed line = half time (38 min) &nbsp;·&nbsp; Hover / tap for exact fractions</p>
+    </div>
+
+    <div style="display:flex; flex-wrap:nowrap; gap:0.4rem; margin-top:1.25rem; overflow-x:auto; padding-bottom:0.25rem;">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.6rem;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:5px;"><span class="dot-laois"></span> 1st half <strong style="color:var(--text);">Laois 58.8%</strong> (10/17)</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.6rem;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:5px;"><span class="dot-kerry"></span> 1st half <strong style="color:var(--text);">Kerry 66.7%</strong> (6/9)</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.6rem;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:5px;"><span class="dot-laois"></span> 2nd half <strong style="color:var(--text);">Laois 28.6%</strong> (4/14)</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.6rem;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:5px;"><span class="dot-kerry"></span> 2nd half <strong style="color:var(--text);">Kerry 20.0%</strong> (2/10)</div>
+    </div>
+  </section>
+
+  <!-- ── TURNOVERS ── -->
+  <section class="chart-section" id="turnovers">
+    <p class="section-label">03 — Possession Loss</p>
+    <h2 class="section-title">Turnovers</h2>
+    <p class="section-desc">Cumulative turnovers (possessions won) by each team across the entire match.</p>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title-text">Cumulative turnovers</span>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="leg-line" style="background:#5b8def;"></span>
+            <span class="leg-dot" style="background:#5b8def;"></span>
+            <span style="color:#9ab8f5;">Laois</span>
+          </div>
+          <div class="legend-item">
+            <span class="leg-line" style="background:#4db87a;"></span>
+            <span class="leg-dot" style="background:#4db87a;"></span>
+            <span style="color:#7dd4a0;">Kerry</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="toChart"></canvas></div>
+      <p class="chart-footer">Dashed line = half time (38 min) &nbsp;·&nbsp; Hover / tap for totals</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>43</strong></div>
+      <div class="stat-pill"><span class="dot-kerry"></span> Kerry total: <strong>38</strong></div>
+      <div class="stat-pill">2nd half: Laois <strong>+15</strong> vs Kerry <strong>+24</strong></div>
+    </div>
+  </section>
+
+  <!-- ── FOULS ── -->
+  <section class="chart-section" id="fouls">
+    <p class="section-label">04 — Discipline</p>
+    <h2 class="section-title">Fouls</h2>
+    <p class="section-desc">Cumulative fouls conceded by each team. We gave away significantly more frees in the second half (Laois 10, Kerry 5).</p>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title-text">Cumulative fouls</span>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="leg-line" style="background:#5b8def;"></span>
+            <span class="leg-dot" style="background:#5b8def;"></span>
+            <span style="color:#9ab8f5;">Laois</span>
+          </div>
+          <div class="legend-item">
+            <span class="leg-line" style="background:#4db87a;"></span>
+            <span class="leg-dot" style="background:#4db87a;"></span>
+            <span style="color:#7dd4a0;">Kerry</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="foulsChart"></canvas></div>
+      <p class="chart-footer">Dashed line = half time (38 min) &nbsp;·&nbsp; Hover / tap for totals</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-pill"><span class="dot-laois"></span> Laois total: <strong>18</strong></div>
+      <div class="stat-pill"><span class="dot-kerry"></span> Kerry total: <strong>11</strong></div>
+      <div class="stat-pill">HT: Kerry <strong>5</strong> — Laois <strong>1</strong></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div style="margin-bottom:0.5rem; font-size:0.8rem; color:#555; letter-spacing:0.06em;">Evan Dunne &nbsp;|&nbsp; Laois GAA</div>
+  NHL Division 2 Final &nbsp;·&nbsp; Laois v Kerry &nbsp;·&nbsp; 28.03.2026
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ── SHARED CONFIG ──────────────────────────────────────────────
+const LABELS = ['0','5','10','15','20','25','30','38 (HT)','40','45','50','55','60','65','75'];
+const CPS    = [0,5,10,15,20,25,30,38,40,45,50,55,60,65,75];
+
+const C_LAOIS = '#5b8def';
+const C_KERRY = '#4db87a';
+const GRID    = 'rgba(255,255,255,0.06)';
+const TICK    = '#555';
+const SURFACE = '#161616';
+
+const htPlugin = {
+  id: 'ht',
+  afterDraw(chart) {
+    const { ctx, chartArea: { top, bottom }, scales: { x } } = chart;
+    const xp = x.getPixelForValue(7);
+    ctx.save();
+    ctx.setLineDash([5, 4]);
+    ctx.strokeStyle = 'rgba(200,168,75,0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(xp, top); ctx.lineTo(xp, bottom); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(200,168,75,0.7)';
+    ctx.font = '600 10px Barlow Condensed, sans-serif';
+    ctx.letterSpacing = '0.1em';
+    ctx.textAlign = 'center';
+    ctx.fillText('HALF TIME', xp, top - 7);
+    ctx.restore();
+  }
+};
+
+function dataset(label, data, color) {
+  return {
+    label, data,
+    borderColor: color, backgroundColor: color,
+    pointBackgroundColor: color,
+    pointBorderColor: SURFACE,
+    pointBorderWidth: 2,
+    pointRadius: 5, pointHoverRadius: 7,
+    borderWidth: 2, tension: 0, spanGaps: true
+  };
+}
+
+function baseOpts(yLabel, yMax, pct) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { top: 22, right: 8 } },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1f1f1f',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
+        titleColor: '#c8a84b',
+        bodyColor: '#ccc',
+        titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+        bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 },
+        padding: 10,
+        callbacks: {
+          title: items => 'MIN ' + LABELS[items[0].dataIndex]
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: GRID },
+        ticks: { autoSkip: false, maxRotation: 0, font: { size: 10, family: 'Barlow Condensed, sans-serif' }, color: TICK }
+      },
+      y: {
+        beginAtZero: true,
+        max: yMax,
+        grid: { color: GRID },
+        ticks: {
+          font: { size: 10, family: 'Barlow Condensed, sans-serif' },
+          color: TICK,
+          callback: v => pct ? v + '%' : v
+        },
+        title: { display: true, text: yLabel, font: { size: 10, family: 'Barlow Condensed, sans-serif' }, color: TICK }
+      }
+    }
+  };
+}
+
+// ── 1. SCORING OPPORTUNITIES ───────────────────────────────────
+(function() {
+  const scoringEvts = [
+    {min:0.05,t:'L'},{min:0.58,t:'K'},{min:1.27,t:'L'},
+    {min:3.47,t:'K'},{min:5.31,t:'L'},{min:5.37,t:'L'},
+    {min:6.09,t:'L'},{min:7.54,t:'L'},{min:10.19,t:'L'},
+    {min:11.51,t:'L'},{min:11.90,t:'K'},{min:14.32,t:'K'},
+    {min:14.71,t:'L'},{min:16.39,t:'K'},{min:16.80,t:'L'},
+    {min:18.03,t:'L'},{min:18.78,t:'L'},{min:19.63,t:'L'},
+    {min:19.99,t:'K'},{min:20.72,t:'L'},{min:21.52,t:'K'},
+    {min:22.68,t:'L'},{min:23.03,t:'K'},{min:24.37,t:'L'},
+    {min:25.52,t:'L'},{min:26.90,t:'K'},{min:28.04,t:'K'},
+    {min:28.63,t:'L'},{min:29.95,t:'K'},{min:31.14,t:'L'},
+    {min:33.77,t:'L'},{min:34.40,t:'L'},{min:35.09,t:'K'},
+    {min:35.41,t:'L'},{min:37.81,t:'K'},{min:39.13,t:'K'},
+    {min:40.32,t:'L'},{min:41.28,t:'K'},{min:42.70,t:'K'},
+    {min:43.56,t:'K'},{min:44.71,t:'L'},{min:45.16,t:'L'},
+    {min:45.66,t:'L'},{min:46.49,t:'K'},{min:48.52,t:'K'},
+    {min:49.28,t:'K'},{min:50.55,t:'L'},{min:50.94,t:'L'},
+    {min:52.86,t:'K'},{min:54.46,t:'K'},{min:56.33,t:'K'},
+    {min:57.01,t:'L'},{min:57.34,t:'K'},{min:59.28,t:'L'},
+    {min:59.55,t:'L'},{min:60.79,t:'K'},{min:61.64,t:'L'},
+    {min:62.19,t:'L'},{min:63.67,t:'L'},{min:64.95,t:'L'},
+    {min:65.67,t:'L'},{min:66.91,t:'K'},{min:67.89,t:'K'},
+    {min:69.53,t:'L'},{min:71.00,t:'K'},{min:71.54,t:'L'},
+    {min:72.11,t:'K'},{min:74.48,t:'L'},{min:74.84,t:'L'}
+  ];
+  const cum = (t,cp) => scoringEvts.filter(e=>e.t===t&&e.min<=cp).length;
+  new Chart(document.getElementById('scoringChart'), {
+    type: 'line', plugins: [htPlugin],
+    data: { labels: LABELS, datasets: [
+      dataset('Laois', CPS.map(cp=>cum('L',cp)), C_LAOIS),
+      dataset('Kerry', CPS.map(cp=>cum('K',cp)), C_KERRY)
+    ]},
+    options: {
+      ...baseOpts('Cumulative opportunities', undefined, false),
+      plugins: {
+        ...baseOpts().plugins,
+        legend: { display: false },
+        tooltip: {
+          ...baseOpts().plugins?.tooltip,
+          backgroundColor: '#1f1f1f',
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 1,
+          titleColor: '#c8a84b',
+          bodyColor: '#ccc',
+          titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+          bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 },
+          padding: 10,
+          callbacks: {
+            title: items => 'MIN ' + LABELS[items[0].dataIndex],
+            label: item => ' ' + item.dataset.label + ': ' + item.raw + ' opportunities'
+          }
+        }
+      },
+      scales: baseOpts('Cumulative opportunities', undefined, false).scales
+    }
+  });
+})();
+
+// ── 2. SHOT EFFICIENCY ─────────────────────────────────────────
+(function() {
+  const laoisEff  = [null,50.0,50.0,55.6,53.8,56.2,55.6,59.1,59.1,62.5,57.7,57.1,58.1,54.3,52.5];
+  const kerryEff  = [null,100.0,100.0,50.0,50.0,62.5,63.6,61.5,57.1,47.1,45.0,45.5,41.7,44.0,44.8];
+  const laoisFrac = ['—','1/2','2/4','5/9','7/13','9/16','10/18','13/22','13/22','15/24','15/26','16/28','18/31','19/35','21/40'];
+  const kerryFrac = ['—','2/2','2/2','2/4','3/6','5/8','7/11','8/13','8/14','8/17','9/20','10/22','10/24','11/25','13/29'];
+
+  new Chart(document.getElementById('effChart'), {
+    type: 'line', plugins: [htPlugin],
+    data: { labels: LABELS, datasets: [
+      dataset('Laois', laoisEff, C_LAOIS),
+      dataset('Kerry', kerryEff, C_KERRY)
+    ]},
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 22, right: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1f1f1f',
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 1,
+          titleColor: '#c8a84b',
+          bodyColor: '#ccc',
+          titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+          bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 },
+          padding: 10,
+          callbacks: {
+            title: items => 'MIN ' + LABELS[items[0].dataIndex],
+            label: item => {
+              const frac = item.dataset.label === 'Laois' ? laoisFrac[item.dataIndex] : kerryFrac[item.dataIndex];
+              return ' ' + item.dataset.label + ': ' + (item.raw !== null ? item.raw + '% (' + frac + ')' : '—');
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: GRID },
+          ticks: { autoSkip: false, maxRotation: 0, font: { size: 10, family: 'Barlow Condensed, sans-serif' }, color: TICK }
+        },
+        y: {
+          beginAtZero: true,
+          max: 110,
+          grid: { color: GRID },
+          ticks: {
+            font: { size: 10, family: 'Barlow Condensed, sans-serif' },
+            color: TICK,
+            callback: v => v + '%'
+          },
+          title: { display: true, text: 'Shot efficiency (%)', font: { size: 10, family: 'Barlow Condensed, sans-serif' }, color: TICK }
+        }
+      }
+    }
+  });
+})();
+
+// ── 2b. SHOT EFFICIENCY FROM PLAY ONLY ────────────────────────
+(function() {
+  const laoisEffPlay  = [null,50.0,50.0,50.0,50.0,54.5,53.8,58.8,58.8,61.1,55.0,52.4,52.2,48.1,45.2];
+  const kerryEffPlay  = [null,100.0,100.0,66.7,60.0,71.4,75.0,66.7,66.7,60.0,50.0,46.2,40.0,43.8,42.1];
+  const laoisFracPlay = ['—','1/2','2/4','3/6','5/10','6/11','7/13','10/17','10/17','11/18','11/20','11/21','12/23','13/27','14/31'];
+  const kerryFracPlay = ['—','2/2','2/2','2/3','3/5','5/7','6/8','6/9','6/9','6/10','6/12','6/13','6/15','7/16','8/19'];
+
+  new Chart(document.getElementById('effPlayChart'), {
+    type: 'line', plugins: [htPlugin],
+    data: { labels: LABELS, datasets: [
+      dataset('Laois', laoisEffPlay, C_LAOIS),
+      dataset('Kerry', kerryEffPlay, C_KERRY)
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 22, right: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1f1f1f', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1,
+          titleColor: '#c8a84b', bodyColor: '#ccc',
+          titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+          bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 }, padding: 10,
+          callbacks: {
+            title: items => 'MIN ' + LABELS[items[0].dataIndex],
+            label: item => {
+              const frac = item.dataset.label === 'Laois' ? laoisFracPlay[item.dataIndex] : kerryFracPlay[item.dataIndex];
+              return ' ' + item.dataset.label + ': ' + (item.raw !== null ? item.raw + '% (' + frac + ')' : '—');
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid:{color:GRID}, ticks:{autoSkip:false,maxRotation:0,font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK} },
+        y: {
+          beginAtZero: true, max: 110, grid:{color:GRID},
+          ticks:{font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK,callback:v=>v+'%'},
+          title:{display:true,text:'Shot efficiency from play (%)',font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK}
+        }
+      }
+    }
+  });
+})();
+
+// ── 3. TURNOVERS ───────────────────────────────────────────────
+(function() {
+  const toEvts = [
+    {min:7.97/60,t:'K'},{min:17.3/60,t:'L'},{min:19.67/60,t:'K'},
+    {min:113.4/60,t:'K'},{min:152.27/60,t:'L'},{min:155.93/60,t:'K'},
+    {min:174.8/60,t:'L'},{min:235.9/60,t:'L'},{min:267.8/60,t:'K'},
+    {min:287.23/60,t:'L'},{min:395.8/60,t:'L'},{min:522.47/60,t:'L'},
+    {min:645.63/60,t:'K'},{min:658.17/60,t:'L'},{min:695.6/60,t:'K'},
+    {min:729.2/60,t:'K'},{min:771.53/60,t:'L'},{min:793.37/60,t:'K'},
+    {min:953.57/60,t:'K'},{min:1037.43/60,t:'L'},{min:1044.6/60,t:'K'},
+    {min:1054.13/60,t:'L'},{min:1116.3/60,t:'L'},{min:1130.6/60,t:'K'},
+    {min:1154.77/60,t:'K'},{min:1167.5/60,t:'L'},{min:1578.47/60,t:'K'},
+    {min:1705.87/60,t:'L'},{min:1824.3/60,t:'K'},{min:1855.07/60,t:'L'},
+    {min:1890.33/60,t:'L'},{min:1896.17/60,t:'K'},{min:1917.43/60,t:'L'},
+    {min:1936.97/60,t:'K'},{min:1961.27/60,t:'L'},{min:2058.9/60,t:'L'},
+    {min:2518.17/60,t:'K'},{min:2555.2/60,t:'L'},{min:2558.47/60,t:'K'},
+    {min:2565.8/60,t:'L'},{min:2574.13/60,t:'K'},{min:2679.8/60,t:'L'},
+    {min:2729.27/60,t:'L'},{min:2793.27/60,t:'L'},{min:2815.43/60,t:'K'},
+    {min:2940/60,t:'L'},{min:2949.87/60,t:'K'},{min:3072.13/60,t:'K'},
+    {min:3080.1/60,t:'L'},{min:3086.17/60,t:'K'},{min:3092.4/60,t:'L'},
+    {min:3097.03/60,t:'K'},{min:3120.1/60,t:'L'},{min:3123.73/60,t:'K'},
+    {min:3186.37/60,t:'L'},{min:3198.83/60,t:'K'},{min:3335.87/60,t:'L'},
+    {min:3344.83/60,t:'K'},{min:3400.13/60,t:'K'},{min:3416.1/60,t:'L'},
+    {min:3452.53/60,t:'L'},{min:3615.63/60,t:'L'},{min:3628.63/60,t:'K'},
+    {min:3702.8/60,t:'K'},{min:3713.93/60,t:'L'},{min:3724.9/60,t:'K'},
+    {min:3727.3/60,t:'L'},{min:3778.3/60,t:'L'},{min:3863.93/60,t:'L'},
+    {min:3871.73/60,t:'K'},{min:3888.53/60,t:'L'},{min:3935.5/60,t:'L'},
+    {min:3984.87/60,t:'L'},{min:3992/60,t:'K'},{min:4076.77/60,t:'L'},
+    {min:4199.07/60,t:'L'},{min:4206.33/60,t:'K'},{min:4296.77/60,t:'K'},
+    {min:4488.83/60,t:'L'},{min:4496.63/60,t:'K'}
+  ];
+  const cum = (t,cp) => toEvts.filter(e=>e.t===t&&e.min<=cp).length;
+  new Chart(document.getElementById('toChart'), {
+    type: 'line', plugins: [htPlugin],
+    data: { labels: LABELS, datasets: [
+      dataset('Laois', CPS.map(cp=>cum('L',cp)), C_LAOIS),
+      dataset('Kerry', CPS.map(cp=>cum('K',cp)), C_KERRY)
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 22, right: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1f1f1f', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1,
+          titleColor: '#c8a84b', bodyColor: '#ccc',
+          titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+          bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 }, padding: 10,
+          callbacks: {
+            title: items => 'MIN ' + LABELS[items[0].dataIndex],
+            label: item => ' ' + item.dataset.label + ': ' + item.raw + ' turnovers'
+          }
+        }
+      },
+      scales: {
+        x: { grid:{color:GRID}, ticks:{autoSkip:false,maxRotation:0,font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK} },
+        y: { beginAtZero:true, grid:{color:GRID}, ticks:{font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK}, title:{display:true,text:'Cumulative turnovers',font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK} }
+      }
+    }
+  });
+})();
+
+// ── 4. FOULS ───────────────────────────────────────────────────
+(function() {
+  const foulsEvts = [
+    {min:287.233/60,t:'K'},{min:409.667/60,t:'K'},{min:569.6/60,t:'K'},
+    {min:808.8/60,t:'L'},{min:913.233/60,t:'K'},{min:1314.5/60,t:'K'},
+    {min:1415.8/60,t:'K'},{min:1482.33/60,t:'K'},{min:1578.47/60,t:'L'},
+    {min:1636.3/60,t:'L'},{min:1750.93/60,t:'L'},{min:1938.27/60,t:'L'},
+    {min:2145.23/60,t:'L'},{min:2314.9/60,t:'L'},{min:2372.43/60,t:'K'},
+    {min:2439.93/60,t:'L'},{min:2575.33/60,t:'L'},{min:2874.47/60,t:'L'},
+    {min:2995.33/60,t:'K'},{min:3097.03/60,t:'L'},{min:3198.83/60,t:'L'},
+    {min:3237.4/60,t:'L'},{min:3288.17/60,t:'L'},{min:3464.3/60,t:'K'},
+    {min:3779.93/60,t:'K'},{min:3871.73/60,t:'L'},{min:4223.57/60,t:'L'},
+    {min:4369.6/60,t:'K'},{min:4505.37/60,t:'L'}
+  ];
+  const cum = (t,cp) => foulsEvts.filter(e=>e.t===t&&e.min<=cp).length;
+  new Chart(document.getElementById('foulsChart'), {
+    type: 'line', plugins: [htPlugin],
+    data: { labels: LABELS, datasets: [
+      dataset('Laois', CPS.map(cp=>cum('L',cp)), C_LAOIS),
+      dataset('Kerry', CPS.map(cp=>cum('K',cp)), C_KERRY)
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 22, right: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1f1f1f', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1,
+          titleColor: '#c8a84b', bodyColor: '#ccc',
+          titleFont: { family: 'Barlow Condensed, sans-serif', size: 12, weight: '600' },
+          bodyFont: { family: 'Barlow Condensed, sans-serif', size: 13 }, padding: 10,
+          callbacks: {
+            title: items => 'MIN ' + LABELS[items[0].dataIndex],
+            label: item => ' ' + item.dataset.label + ': ' + item.raw + ' fouls'
+          }
+        }
+      },
+      scales: {
+        x: { grid:{color:GRID}, ticks:{autoSkip:false,maxRotation:0,font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK} },
+        y: { beginAtZero:true, grid:{color:GRID}, ticks:{stepSize:2,font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK}, title:{display:true,text:'Cumulative fouls',font:{size:10,family:'Barlow Condensed, sans-serif'},color:TICK} }
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
