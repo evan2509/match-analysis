@@ -302,8 +302,14 @@
   }
   .prod-card.overall {
     border-color: var(--gold);
-    background: linear-gradient(135deg, var(--surface), rgba(200,168,75,0.04));
+    background: linear-gradient(135deg, var(--surface), rgba(61,155,233,0.04));
   }
+  .prod-card.overall-opp {
+    border-color: var(--opp);
+    background: linear-gradient(135deg, var(--surface), rgba(0,196,90,0.04));
+  }
+  .prod-card.overall .number { color: var(--gold); }
+  .prod-card.overall-opp .number { color: var(--opp); }
   .prod-card .period {
     font-family: 'Barlow Condensed', sans-serif;
     color: var(--gold);
@@ -321,7 +327,8 @@
     color: var(--text);
     margin-bottom: 0.5rem;
   }
-  .prod-card.overall .number { color: var(--gold); }
+  .prod-card.overall-opp .number { color: var(--opp); }
+  .prod-card.overall-opp .period { color: var(--opp); }
   .prod-card .sub {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.82rem;
@@ -718,7 +725,7 @@ const EVENTS = [{"c":"Opp Eff Score Play","m":0.0,"l":[]},{"c":"Opposition Posse
 // CONFIG
 // ============================================================
 const HT = 37;
-const FT = 76;
+const FT = 77;
 const CHECKPOINTS = [0,5,10,15,20,25,30,HT,40,45,50,55,60,65,FT];
 
 const COLORS = {
@@ -1057,14 +1064,14 @@ function pill(dotClass, label, value) {
     return { g, p, pts, poss, prod };
   };
 
-  const renderRow = (team, target) => {
+  const renderRow = (team, target, isOpp) => {
     const rows = [
       { lbl: '1st Half', ...calc(team, 0, HT), overall: false },
       { lbl: '2nd Half', ...calc(team, HT, FT), overall: false },
       { lbl: 'Overall', ...calc(team, 0, 999), overall: true }
     ];
     document.getElementById(target).innerHTML = rows.map(r => `
-      <div class="prod-card ${r.overall ? 'overall' : ''}">
+      <div class="prod-card ${r.overall ? (isOpp ? 'overall-opp' : 'overall') : ''}">
         <div class="period">${r.lbl}</div>
         <div class="number">${r.prod.toFixed(1)}</div>
         <div class="sub">Points: ${r.pts} · Possessions: ${r.poss}</div>
@@ -1072,8 +1079,8 @@ function pill(dotClass, label, value) {
     `).join('');
   };
 
-  renderRow('Laois', 'prod-laois');
-  renderRow('Opposition', 'prod-opp');
+  renderRow('Laois', 'prod-laois', false);
+  renderRow('Opposition', 'prod-opp', true);
 })();
 
 // ============================================================
@@ -1153,8 +1160,8 @@ function pill(dotClass, label, value) {
   });
 
   document.getElementById('pills-fouls').innerHTML = [
-    pill('laois', 'Laois conceded', laoisTot),
-    pill('opp', 'Carlow conceded', oppTot),
+    pill('laois', 'Laois Total', laoisTot),
+    pill('opp', 'Carlow Total', oppTot),
     pill('laois', 'Laois HT', laoisHT),
     pill('opp', 'Carlow HT', oppHT),
     pill('laois', 'Laois 2H', laois2H),
