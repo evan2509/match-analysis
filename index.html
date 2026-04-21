@@ -598,7 +598,7 @@
 <section class="block" id="shots">
   <div class="eyebrow">01 — Scoring Opportunities</div>
   <h2 class="section-title">Scoring Opportunities Over Time</h2>
-  <p class="section-desc">Cumulative total shots (play and placed) taken by each side across the match.</p>
+  <p class="section-desc">Total shots (play and placed) taken by each side across the whole match.</p>
   <div class="chart-wrap"><canvas id="chart-shots"></canvas></div>
   <div class="pills" id="pills-shots"></div>
 </section>
@@ -614,7 +614,7 @@
 
 <!-- 03 PLAY EFFICIENCY -->
 <section class="block" id="play-efficiency">
-  <div class="eyebrow">03 — Play Efficiency</div>
+  <div class="eyebrow">03 — Efficiency From Play</div>
   <h2 class="section-title">Shot Efficiency From Play</h2>
   <p class="section-desc">Conversion rate on shots from open play only, no placed balls.</p>
   <div class="chart-wrap"><canvas id="chart-playeff"></canvas></div>
@@ -659,7 +659,7 @@
 <section class="block" id="puckouts">
   <div class="eyebrow">07 — Puckouts</div>
   <h2 class="section-title">Puckout Analysis</h2>
-  <p class="section-desc">Retention, length selection, and how possession was won or lost on each restart.</p>
+  <p class="section-desc"></p>
 
   <div class="puck-grid" id="puck-panels"></div>
 
@@ -1239,7 +1239,7 @@ function pill(dotClass, label, value) {
         <div class="puck-subhead">By Length</div>
         <div class="puck-row">${lenPills}</div>
 
-        <div class="puck-subhead">By Contest Status</div>
+        <div class="puck-subhead">Breakdown</div>
         <div class="puck-kv">
           <div class="k">Contested total</div><div class="v">${byContest.Contested.total}</div>
           <div class="k">Contested won / lost</div><div class="v">${byContest.Contested.won} / ${byContest.Contested.lost}</div>
@@ -1280,17 +1280,20 @@ function pill(dotClass, label, value) {
           {
             label: 'Taken',
             data: takenCum,
-            borderColor: soloColor,
-            backgroundColor: 'transparent',
+            borderColor: '#ffffff',
+            backgroundColor: '#ffffff',
             borderDash: [6, 4],
             tension: 0.3, borderWidth: 2, fill: false,
-            ...pointStyle(soloColor)
+            pointRadius: 4, pointHoverRadius: 6,
+            pointBackgroundColor: '#ffffff',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 0
           },
           {
             label: 'Won',
             data: wonCum,
             borderColor: darkColor,
-            backgroundColor: 'transparent',
+            backgroundColor: darkColor,
             tension: 0.3, borderWidth: 2, fill: false,
             ...pointStyle(darkColor)
           }
