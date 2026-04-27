@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carlow v Laois — Joe McDonagh Cup Round 1 | Match Analysis</title>
+<title>Laois v Antrim — Joe McDonagh Cup Round 2 | Match Analysis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -22,536 +22,131 @@
     --gold-soft: rgba(61,155,233,0.15);
     --laois: #5b8def;
     --laois-soft: #8fb3f5;
-    --opp: #00c45a;
-    --opp-soft: #4ddb8c;
+    --opp: #f5a623;
+    --opp-soft: #f9c76a;
     --grid: rgba(255,255,255,0.06);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; scroll-padding-top: 70px; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 400;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* Custom scrollbar */
+  body { background: var(--bg); color: var(--text); font-family: 'Lora', Georgia, serif; font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 5px; border: 2px solid var(--bg); }
   ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-
-  /* NAV */
-  nav.topnav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(13,13,13,0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: flex; align-items: center; gap: 1.5rem;
-    padding: 0.85rem 1.5rem;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .nav-brand {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-size: 0.95rem;
-    color: var(--gold);
-    padding-right: 1rem;
-    border-right: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .nav-links {
-    display: flex; gap: 1.1rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.82rem;
-  }
-  .nav-links a {
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-    padding: 0.25rem 0;
-    border-bottom: 1px solid transparent;
-  }
+  nav.topnav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; padding: 0.85rem 1.5rem; overflow-x: auto; white-space: nowrap; }
+  .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.95rem; color: var(--gold); padding-right: 1rem; border-right: 1px solid var(--border); flex-shrink: 0; }
+  .nav-links { display: flex; gap: 1.1rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.82rem; }
+  .nav-links a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; padding: 0.25rem 0; border-bottom: 1px solid transparent; }
   .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
 
-  /* HERO */
-  .hero {
-    max-width: 1400px; margin: 0 auto;
-    padding: 1.75rem 1.5rem 0;
-    position: relative;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--gold);
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    font-weight: 500;
-    margin-bottom: 0.55rem;
-  }
-  .hero-teams {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.25rem;
-  }
-  .hero-teams .vs {
-    color: var(--gold);
-    font-weight: 400;
-    font-style: italic;
-    font-family: 'Lora', serif;
-    font-size: 0.5em;
-    margin: 0 0.5rem;
-    vertical-align: middle;
-  }
-
-  .score-row {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 0;
-  }
-  .score-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: 1.1rem 2rem 1.1rem 0;
-    margin-right: 2rem;
-    border-right: 1px solid var(--border);
-  }
-  .score-block:last-child {
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
-  }
-  .score-block .team {
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
-  .score-block .score {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    letter-spacing: 0.02em;
-    line-height: 1;
-  }
-  .score-block .ht {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
+  .hero { max-width: 1400px; margin: 0 auto; padding: 1.75rem 1.5rem 0; position: relative; border-bottom: 1px solid var(--border); }
+  .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.78rem; font-weight: 500; margin-bottom: 0.55rem; }
+  .hero-teams { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+  .hero-teams .vs { color: var(--gold); font-weight: 400; font-style: italic; font-family: 'Lora', serif; font-size: 0.5em; margin: 0 0.5rem; vertical-align: middle; }
+  .score-row { display: flex; align-items: stretch; gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 0; }
+  .score-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.1rem 2rem 1.1rem 0; margin-right: 2rem; border-right: 1px solid var(--border); }
+  .score-block:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+  .score-block .team { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+  .score-block .score { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.5rem); letter-spacing: 0.02em; line-height: 1; }
+  .score-block .ht { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
   .score-block.laois .score { color: var(--laois); }
   .score-block.opp .score { color: var(--opp); }
-
-  .meta-row {
-    display: flex; flex-wrap: wrap; gap: 0 2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 0.75rem 0 1rem;
-  }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 0 2rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0.75rem 0 1rem; }
   .meta-row span { display: flex; gap: 0.4rem; }
-  .meta-row span strong {
-    color: var(--text-dim);
-    font-weight: 500;
-  }
+  .meta-row span strong { color: var(--text-dim); font-weight: 500; }
 
-  /* SECTION */
-  section.block {
-    max-width: 1400px; margin: 0 auto;
-    padding: 3rem 1.5rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-  }
+  section.block { max-width: 1400px; margin: 0 auto; padding: 3rem 1.5rem 2.5rem; border-bottom: 1px solid var(--border); }
   section.block:last-of-type { border-bottom: none; }
+  .eyebrow { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.85rem, 4vw, 2.85rem); text-transform: uppercase; letter-spacing: 0.005em; line-height: 1.05; margin-bottom: 0.9rem; }
+  .section-desc { font-family: 'Lora', serif; font-style: italic; color: var(--text-dim); font-size: 1.02rem; max-width: 820px; margin-bottom: 2rem; }
 
-  .eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--gold);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.85rem, 4vw, 2.85rem);
-    text-transform: uppercase;
-    letter-spacing: 0.005em;
-    line-height: 1.05;
-    margin-bottom: 0.9rem;
-  }
-  .section-desc {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    color: var(--text-dim);
-    font-size: 1.02rem;
-    max-width: 820px;
-    margin-bottom: 2rem;
-  }
+  .chart-wrap { position: relative; height: clamp(240px, 40vw, 320px); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1rem 0.5rem; margin-bottom: 1.25rem; }
 
-  /* CHART WRAPPER */
-  .chart-wrap {
-    position: relative;
-    height: clamp(240px, 40vw, 320px);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1rem 1rem 0.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  /* STAT PILLS */
-  .pills {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 0.6rem;
-    padding-bottom: 0.25rem;
-  }
-  .pills.nowrap {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  .pill {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.5rem 0.95rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--text-dim);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .pill strong {
-    color: var(--text);
-    font-weight: 600;
-    margin-left: 0.15rem;
-  }
-  .pill .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .pills { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 0.6rem; padding-bottom: 0.25rem; }
+  .pill { display: inline-flex; align-items: center; gap: 0.55rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 0.95rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--text-dim); white-space: nowrap; flex-shrink: 0; }
+  .pill strong { color: var(--text); font-weight: 600; margin-left: 0.15rem; }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .pill .dot.laois { background: var(--laois); }
   .pill .dot.opp { background: var(--opp); }
 
-  /* PRODUCTIVITY CARDS */
-  .prod-group { margin-bottom: 1rem; }
-  .prod-group-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.6rem;
-  }
-  .prod-group-label .dot { width: 10px; height: 10px; border-radius: 50%; }
-  .prod-group-label.laois .dot { background: var(--laois); }
-  .prod-group-label.opp .dot { background: var(--opp); }
-  .prod-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.9rem;
-    margin-bottom: 1.6rem;
-  }
-  .prod-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.4rem 1.2rem;
-    text-align: left;
-  }
-  .prod-card.overall {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, var(--surface), rgba(61,155,233,0.04));
-  }
-  .prod-card.overall-opp {
-    border-color: var(--opp);
-    background: linear-gradient(135deg, var(--surface), rgba(0,196,90,0.04));
-  }
-  .prod-card.overall .number { color: var(--gold); }
-  .prod-card.overall-opp .number { color: var(--opp); }
-  .prod-card .period {
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  .prod-card .number {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    line-height: 1;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-  .prod-card.overall-opp .number { color: var(--opp); }
-  .prod-card.overall-opp .period { color: var(--opp); }
-  .prod-card .sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  /* PUCKOUT LAYOUT */
-  .puck-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  .puck-panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.4rem 1.3rem;
-    min-width: 0;
-    overflow: hidden;
-  }
-  .puck-panel h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1.1rem;
-    display: flex; align-items: center; gap: 0.55rem;
-  }
+  .puck-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-bottom: 1.5rem; }
+  .puck-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 1.3rem; min-width: 0; overflow: hidden; }
+  .puck-panel h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.55rem; }
   .puck-panel h3 .dot { width: 10px; height: 10px; border-radius: 50%; }
   .puck-panel h3.laois .dot { background: var(--laois); }
   .puck-panel h3.opp .dot { background: var(--opp); }
-
-  .puck-subhead {
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-size: 0.74rem;
-    font-weight: 500;
-    margin: 1.15rem 0 0.55rem;
-    padding-top: 0.85rem;
-    border-top: 1px solid var(--border);
-  }
-  .puck-subhead:first-child, .puck-panel > .puck-subhead:first-of-type {
-    border-top: none; padding-top: 0; margin-top: 0;
-  }
-
-  .puck-hero {
-    display: flex; align-items: baseline; gap: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-  .puck-hero .big {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 1;
-  }
-  .puck-hero .frac {
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-  }
-  .puck-hero .lbl {
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    color: var(--text-dim);
-    display: block; margin-bottom: 0.4rem;
-  }
-
-  .puck-total {
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    margin-bottom: 0.5rem;
-  }
+  .puck-subhead { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.74rem; font-weight: 500; margin: 1.15rem 0 0.55rem; padding-top: 0.85rem; border-top: 1px solid var(--border); }
+  .puck-subhead:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  .puck-hero { display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 0.5rem; }
+  .puck-hero .big { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 2.5rem; line-height: 1; }
+  .puck-hero .frac { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem; color: var(--text-muted); }
+  .puck-hero .lbl { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; color: var(--text-dim); display: block; margin-bottom: 0.4rem; }
+  .puck-total { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem; }
   .puck-total strong { color: var(--text); font-weight: 600; }
-
-  .puck-row {
-    display: flex; flex-wrap: nowrap; gap: 0.35rem;
-    margin-bottom: 0.35rem;
-  }
-  .puck-row .pill {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.6rem;
-    letter-spacing: 0.08em;
-    gap: 0.35rem;
-  }
-
-  #pills-puck-laois,
-  #pills-puck-opp,
-  #pills-puck-cont-laois,
-  #pills-puck-cont-opp {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-
-  .puck-kv {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.3rem 1rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.88rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .puck-row { display: flex; flex-wrap: nowrap; gap: 0.35rem; margin-bottom: 0.35rem; }
+  .puck-row .pill { font-size: 0.72rem; padding: 0.35rem 0.6rem; letter-spacing: 0.08em; gap: 0.35rem; }
+  .puck-kv { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .puck-kv .k { color: var(--text-dim); }
   .puck-kv .v { color: var(--text); font-weight: 600; }
-
-  .puck-summary {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.98rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    display: grid; gap: 0.5rem;
-  }
+  .puck-summary { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.98rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); display: grid; gap: 0.5rem; }
   .puck-summary strong { color: var(--text); font-weight: 600; }
-
   .puck-chart-block { margin-top: 2rem; }
-  .puck-chart-block h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
+  .puck-chart-block h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 1rem; margin-bottom: 0.75rem; color: var(--text); }
 
-  /* INTENSITY CARDS */
-  .intensity-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .int-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem 1.6rem;
-    text-align: left;
-  }
-  .int-card.overall {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, var(--surface), rgba(200,168,75,0.04));
-  }
-  .int-card .lbl {
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--gold);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-size: 0.82rem;
-    font-weight: 500;
-    margin-bottom: 0.85rem;
-  }
-  .int-card .num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 0.95rem;
-  }
+  #pills-puck-laois, #pills-puck-opp, #pills-puck-cont-laois, #pills-puck-cont-opp { flex-wrap: nowrap; overflow-x: auto; }
+
+  .intensity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .int-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 1.6rem; }
+  .int-card.overall { border-color: var(--gold); background: linear-gradient(135deg, var(--surface), rgba(61,155,233,0.04)); }
+  .int-card .lbl { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.85rem; }
+  .int-card .num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 3rem; line-height: 1; margin-bottom: 0.95rem; }
   .int-card.overall .num { color: var(--gold); }
-  .int-card .sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .int-card .sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); line-height: 1.6; }
   .int-card .sub strong { color: var(--text-dim); font-weight: 500; }
 
-  /* FOOTER */
-  footer {
-    max-width: 1400px; margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
-    border-top: 1px solid var(--border);
-    font-family: 'Barlow Condensed', sans-serif;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    display: grid; gap: 0.55rem;
-  }
-  footer .author {
-    color: var(--gold);
-    letter-spacing: 0.24em;
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-  }
+  footer { max-width: 1400px; margin: 0 auto; padding: 3rem 1.5rem 4rem; border-top: 1px solid var(--border); font-family: 'Barlow Condensed', sans-serif; color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; display: grid; gap: 0.55rem; }
+  footer .author { color: var(--gold); letter-spacing: 0.24em; font-weight: 500; margin-bottom: 0.4rem; }
 
-  /* RESPONSIVE */
+  .prod-group { margin-bottom: 1rem; }
+  .prod-group-label { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+  .prod-group-label .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .prod-group-label.laois .dot { background: var(--laois); }
+  .prod-group-label.opp .dot { background: var(--opp); }
+  .prod-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin-bottom: 1.6rem; }
+  .prod-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 1.2rem; }
+  .prod-card.overall { border-color: var(--gold); background: linear-gradient(135deg, var(--surface), rgba(61,155,233,0.04)); }
+  .prod-card.overall-opp { border-color: var(--opp); background: linear-gradient(135deg, var(--surface), rgba(245,166,35,0.04)); }
+  .prod-card .period { font-family: 'Barlow Condensed', sans-serif; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.78rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .prod-card.overall-opp .period { color: var(--opp); }
+  .prod-card .number { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 3rem; line-height: 1; color: var(--text); margin-bottom: 0.5rem; }
+  .prod-card.overall .number { color: var(--gold); }
+  .prod-card.overall-opp .number { color: var(--opp); }
+  .prod-card .sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  .puck-contest-block { margin-bottom: 2rem; }
+  .puck-contest-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .puck-contest-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 1.3rem; }
+  .puck-contest-card.winner { border-color: var(--gold); background: linear-gradient(135deg, var(--surface), rgba(61,155,233,0.04)); }
+  .puck-contest-card .pc-team { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .puck-contest-card .pc-team .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .puck-contest-card .pc-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 3rem; line-height: 1; margin-bottom: 0.4rem; }
+  .puck-contest-card.winner .pc-num { color: var(--gold); }
+  .puck-contest-card .pc-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
   @media (max-width: 768px) {
-    .prod-cards { grid-template-columns: 1fr; }
-    .puck-grid { grid-template-columns: 1fr; }
     .intensity-grid { grid-template-columns: 1fr; }
+    .puck-grid { grid-template-columns: 1fr; }
+    .puck-contest-cards { grid-template-columns: 1fr; }
+    .prod-cards { grid-template-columns: 1fr; }
     .hero { padding: 1.25rem 1.25rem 0; }
     section.block { padding: 2.25rem 1.25rem 2rem; }
     .nav-brand { font-size: 0.85rem; }
     .nav-links { font-size: 0.76rem; gap: 0.9rem; }
-    .score-row { gap: 1.5rem 2rem; }
     .puck-panel { overflow: hidden; min-width: 0; }
     .puck-row { overflow-x: auto; }
-    .puck-kv {
-      font-size: 0.78rem;
-      word-break: break-word;
-    }
+    .puck-kv { font-size: 0.78rem; word-break: break-word; }
   }
 </style>
 </head>
@@ -574,23 +169,23 @@
 </nav>
 
 <header class="hero">
-  <div class="hero-eyebrow">Joe McDonagh Cup · Round 1 · 18 April 2026</div>
-  <h1 class="hero-teams">Carlow <span class="vs">v</span> Laois</h1>
+  <div class="hero-eyebrow">Joe McDonagh Cup · Round 2 · 25 April 2026</div>
+  <h1 class="hero-teams">Laois <span class="vs">v</span> Antrim</h1>
   <div class="score-row">
-    <div class="score-block opp">
-      <span class="team">Carlow</span>
-      <span class="score">4-17</span>
-      <span class="ht">HT · 2-09</span>
-    </div>
     <div class="score-block laois">
       <span class="team">Laois</span>
-      <span class="score">1-17</span>
-      <span class="ht">HT · 0-08</span>
+      <span class="score">2-23</span>
+      <span class="ht">HT · 1-11</span>
+    </div>
+    <div class="score-block opp">
+      <span class="team">Antrim</span>
+      <span class="score">0-22</span>
+      <span class="ht">HT · 0-15</span>
     </div>
   </div>
   <div class="meta-row">
-    <span><strong>Dr. Cullen Park, Carlow</strong></span>
-    <span>Ref <strong>Niall Malone</strong></span>
+    <span><strong>O'Moore Park, Portlaoise</strong></span>
+    <span>Ref <strong>Caymon Flynn</strong></span>
   </div>
 </header>
 
@@ -626,13 +221,12 @@
   <div class="eyebrow">04 — Productivity</div>
   <h2 class="section-title">Productivity</h2>
   <p class="section-desc">Points returned per ten possessions — goals weighted as three points in the calculation.</p>
-
   <div class="prod-group">
     <div class="prod-group-label laois"><span class="dot"></span>Laois</div>
     <div class="prod-cards" id="prod-laois"></div>
   </div>
   <div class="prod-group">
-    <div class="prod-group-label opp"><span class="dot"></span>Carlow</div>
+    <div class="prod-group-label opp"><span class="dot"></span>Antrim</div>
     <div class="prod-cards" id="prod-opp"></div>
   </div>
 </section>
@@ -646,7 +240,7 @@
   <div class="pills" id="pills-to"></div>
 </section>
 
-<!-- 06 FOULS -->
+<!-- 05 FOULS -->
 <section class="block" id="fouls">
   <div class="eyebrow">06 — Fouls</div>
   <h2 class="section-title">Fouls Over Time</h2>
@@ -655,40 +249,41 @@
   <div class="pills" id="pills-fouls"></div>
 </section>
 
-<!-- 07 PUCKOUTS -->
+<!-- 06 PUCKOUTS -->
 <section class="block" id="puckouts">
   <div class="eyebrow">07 — Puckouts</div>
   <h2 class="section-title">Puckout Analysis</h2>
   <p class="section-desc"></p>
-
   <div class="puck-grid" id="puck-panels"></div>
-
   <div class="puck-summary" id="puck-summary"></div>
 
+  <div class="puck-contest-block">
+    <div class="puck-subhead" style="border-top:none;padding-top:0;margin-top:0;margin-bottom:1rem;">Overall Contested Puckouts</div>
+    <div class="puck-contest-cards" id="puck-contest-overall"></div>
+  </div>
   <div class="puck-chart-block">
     <h4>Laois Puckouts — Taken v Won</h4>
     <div class="chart-wrap"><canvas id="chart-puck-laois"></canvas></div>
     <div class="pills" id="pills-puck-laois"></div>
   </div>
   <div class="puck-chart-block">
-    <h4>Carlow Puckouts — Taken v Won</h4>
+    <h4>Antrim Puckouts — Taken v Won</h4>
     <div class="chart-wrap"><canvas id="chart-puck-opp"></canvas></div>
     <div class="pills" id="pills-puck-opp"></div>
   </div>
-
   <div class="puck-chart-block">
     <h4>Laois Contested Puckouts — Won Over Time</h4>
     <div class="chart-wrap"><canvas id="chart-puck-cont-laois"></canvas></div>
     <div class="pills" id="pills-puck-cont-laois"></div>
   </div>
   <div class="puck-chart-block">
-    <h4>Carlow Contested Puckouts — Won Over Time</h4>
+    <h4>Antrim Contested Puckouts — Won Over Time</h4>
     <div class="chart-wrap"><canvas id="chart-puck-cont-opp"></canvas></div>
     <div class="pills" id="pills-puck-cont-opp"></div>
   </div>
 </section>
 
-<!-- 08 INTENSITY -->
+<!-- 07 INTENSITY -->
 <section class="block" id="intensity">
   <div class="eyebrow">08 — Intensity Index</div>
   <h2 class="section-title">Intensity Index</h2>
@@ -696,44 +291,42 @@
   <div class="intensity-grid">
     <div class="int-card">
       <div class="lbl">1st Half</div>
-      <div class="num">5.4</div>
-      <div class="sub"><strong>Opp. possession</strong> 4:04<br><strong>Key actions</strong> 22</div>
+      <div class="num">5.8</div>
+      <div class="sub"><strong>Opp. possession</strong> 2:55<br><strong>Key actions</strong> 17</div>
     </div>
     <div class="int-card">
       <div class="lbl">2nd Half</div>
-      <div class="num">4.8</div>
-      <div class="sub"><strong>Opp. possession</strong> 3:21<br><strong>Key actions</strong> 16</div>
+      <div class="num">6.5</div>
+      <div class="sub"><strong>Opp. possession</strong> 3:33<br><strong>Key actions</strong> 23</div>
     </div>
     <div class="int-card overall">
       <div class="lbl">Overall</div>
-      <div class="num">5.1</div>
-      <div class="sub"><strong>Opp. possession</strong> 7:25<br><strong>Key actions</strong> 38</div>
+      <div class="num">6.2</div>
+      <div class="sub"><strong>Opp. possession</strong> 6:29<br><strong>Key actions</strong> 40</div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="author">Evan Dunne · Laois GAA</div>
-  <div>Joe McDonagh Cup · Round 1 · Dr. Cullen Park, Carlow · 18 April 2026</div>
-  <div>Referee · Niall Malone</div>
+  <div>Joe McDonagh Cup · Round 2 · O'Moore Park, Portlaoise · 25 April 2026</div>
+  <div>Referee · Caymon Flynn</div>
 </footer>
 
 <script>
-const EVENTS = [{"c":"Opp Eff Score Play","m":0.0,"l":[]},{"c":"Opposition Possessions","m":0.091,"l":[]},{"c":"Laois Turnovers","m":0.192,"l":["Defensive Third"]},{"c":"Laois Possessions","m":0.192,"l":[]},{"c":"Oppposition Turnovers","m":0.414,"l":["Middle Third"]},{"c":"Opposition Possessions","m":0.414,"l":[]},{"c":"Opposition Attacks","m":0.702,"l":[]},{"c":"Opposition Goal Chance","m":0.649,"l":[]},{"c":"Opposition Shots From Play","m":0.72,"l":["Saved"]},{"c":"Laois Turnovers","m":0.769,"l":["Defensive Third"]},{"c":"Laois Possessions","m":0.769,"l":[]},{"c":"Laois Shots From Play","m":0.971,"l":["Wides"]},{"c":"Opposition Puckouts","m":1.297,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":1.288,"l":[]},{"c":"Opposition Attacks","m":1.515,"l":[]},{"c":"Opposition Shots From Play","m":1.512,"l":["Wides"]},{"c":"Laois Puckouts","m":1.716,"l":["Short","Contested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":1.736,"l":[]},{"c":"Oppposition Turnovers","m":1.867,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":1.867,"l":[]},{"c":"Opposition Sideline","m":2.337,"l":[]},{"c":"Laois Turnovers","m":2.491,"l":["Middle Third"]},{"c":"Laois Possessions","m":2.491,"l":[]},{"c":"Laois Attacks","m":2.526,"l":[]},{"c":"Opposition Fouls","m":2.543,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":3.103,"l":["Point"]},{"c":"Laois Total Score Placed","m":3.103,"l":[]},{"c":"Laois Eff Score Placed","m":3.103,"l":[]},{"c":"Opposition Puckouts","m":3.387,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":3.384,"l":[]},{"c":"Laois Turnovers","m":3.493,"l":["Middle Third"]},{"c":"Laois Possessions","m":3.493,"l":[]},{"c":"Laois Attacks","m":3.674,"l":[]},{"c":"Laois Shots From Play","m":3.751,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":3.813,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":3.813,"l":[]},{"c":"Opposition Attacks","m":4.183,"l":[]},{"c":"Ruck","m":4.314,"l":["Laois Tackle","Laois Won"]},{"c":"Laois Turnovers","m":4.356,"l":["Defensive Third"]},{"c":"Laois Possessions","m":4.356,"l":[]},{"c":"Oppposition Turnovers","m":4.488,"l":["Middle Third"]},{"c":"Opposition Possessions","m":4.488,"l":[]},{"c":"Opposition Shots From Play","m":4.553,"l":["Point"]},{"c":"Opp Eff Score Play","m":4.625,"l":[]},{"c":"Laois Puckouts","m":4.843,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":4.85,"l":[]},{"c":"Oppposition Turnovers","m":4.916,"l":["Middle Third"]},{"c":"Opposition Possessions","m":4.916,"l":[]},{"c":"Opposition Sideline","m":5.497,"l":[]},{"c":"Laois Turnovers","m":5.566,"l":["Defensive Third"]},{"c":"Laois Possessions","m":5.566,"l":[]},{"c":"Laois Attacks","m":5.782,"l":[]},{"c":"Laois Shots From Play","m":5.801,"l":["Wides"]},{"c":"Opposition Puckouts","m":6.084,"l":["Contested","Opposition Won","Opposition Won Clean","Medium"]},{"c":"Opposition Possessions","m":6.121,"l":[]},{"c":"Opposition Attacks","m":6.186,"l":[]},{"c":"Opposition Shots From Play","m":6.221,"l":["Point"]},{"c":"Opp Eff Score Play","m":6.326,"l":[]},{"c":"Laois Puckouts","m":6.471,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":6.482,"l":[]},{"c":"Ruck","m":6.706,"l":["Throw-in","Opposition Won"]},{"c":"Oppposition Turnovers","m":7.094,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":7.094,"l":[]},{"c":"Laois Turnovers","m":7.293,"l":["Middle Third"]},{"c":"Laois Possessions","m":7.293,"l":[]},{"c":"Laois Shots From Play","m":7.313,"l":["Wides"]},{"c":"Opposition Puckouts","m":7.706,"l":["Medium","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":7.766,"l":[]},{"c":"Opposition Attacks","m":7.827,"l":[]},{"c":"Ruck","m":7.884,"l":["Laois Tackle","Laois Won"]},{"c":"Laois Turnovers","m":8.056,"l":["Defensive Third"]},{"c":"Laois Possessions","m":8.056,"l":[]},{"c":"Laois Attacks","m":8.396,"l":[]},{"c":"Laois Shots From Play","m":8.414,"l":["Point"]},{"c":"Laois Eff Score Play","m":8.528,"l":[]},{"c":"Opposition Puckouts","m":8.757,"l":["Medium","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":8.778,"l":[]},{"c":"Laois Turnovers","m":8.954,"l":["Middle Third"]},{"c":"Laois Possessions","m":8.954,"l":[]},{"c":"Laois Attacks","m":9.015,"l":[]},{"c":"Laois Shots From Play","m":8.998,"l":["Point"]},{"c":"Laois Eff Score Play","m":9.116,"l":[]},{"c":"Opposition Puckouts","m":9.439,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":9.433,"l":[]},{"c":"Laois Turnovers","m":9.695,"l":["Middle Third"]},{"c":"Laois Possessions","m":9.695,"l":[]},{"c":"Oppposition Turnovers","m":9.839,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":9.839,"l":[]},{"c":"Laois Turnovers","m":9.976,"l":["Middle Third"]},{"c":"Laois Possessions","m":9.976,"l":[]},{"c":"Opposition Fouls","m":9.976,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":10.577,"l":["Point"]},{"c":"Laois Total Score Placed","m":10.659,"l":[]},{"c":"Laois Eff Score Placed","m":10.683,"l":[]},{"c":"Opposition Puckouts","m":10.873,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":10.976,"l":[]},{"c":"Opposition Shots From Play","m":11.064,"l":["Short"]},{"c":"Opposition Goal Chance","m":11.124,"l":[]},{"c":"Opposition Shots From Play","m":11.174,"l":["Goal"]},{"c":"Opp Eff Score Play","m":11.207,"l":[]},{"c":"Laois Puckouts","m":11.453,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":11.454,"l":[]},{"c":"Laois Attacks","m":11.621,"l":[]},{"c":"Oppposition Turnovers","m":11.709,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":11.709,"l":[]},{"c":"Laois Fouls","m":11.709,"l":["Offensive Third"]},{"c":"Opposition Attacks","m":12.176,"l":[]},{"c":"Opposition Shots From Play","m":12.231,"l":["Wides"]},{"c":"Laois Fouls","m":12.231,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":13.354,"l":["Point"]},{"c":"Opp Total Score Placed","m":13.436,"l":[]},{"c":"Opp Eff Score Placed","m":13.436,"l":[]},{"c":"Laois Puckouts","m":13.573,"l":["Uncontested","Opposition Won","Opposition Won Clean","Long"]},{"c":"Opposition Possessions","m":13.627,"l":[]},{"c":"Opposition Attacks","m":13.799,"l":[]},{"c":"Laois Fouls","m":13.822,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":14.711,"l":["Point"]},{"c":"Opp Total Score Placed","m":14.728,"l":[]},{"c":"Opp Eff Score Placed","m":14.728,"l":[]},{"c":"Laois Puckouts","m":14.856,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":14.872,"l":[]},{"c":"Oppposition Turnovers","m":14.982,"l":["Middle Third"]},{"c":"Opposition Possessions","m":14.982,"l":[]},{"c":"Opposition Attacks","m":15.022,"l":[]},{"c":"Opposition Shots From Play","m":15.047,"l":["Wides"]},{"c":"Laois Puckouts","m":15.381,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":15.445,"l":[]},{"c":"Opposition Attacks","m":15.792,"l":[]},{"c":"Opposition Shots From Play","m":15.809,"l":["Short"]},{"c":"Opposition Possessions","m":15.867,"l":[]},{"c":"Laois Turnovers","m":15.876,"l":["Defensive Third"]},{"c":"Laois Possessions","m":15.876,"l":[]},{"c":"Oppposition Turnovers","m":15.985,"l":["Middle Third"]},{"c":"Opposition Sideline","m":16.526,"l":[]},{"c":"Laois Turnovers","m":16.608,"l":["Defensive Third"]},{"c":"Laois Possessions","m":16.608,"l":[]},{"c":"Laois Attacks","m":16.775,"l":[]},{"c":"Laois Goal Chance","m":16.756,"l":[]},{"c":"Laois Shots From Play","m":16.814,"l":["Saved"]},{"c":"Ruck","m":16.858,"l":["Laois Shot","Opposition Won"]},{"c":"Oppposition Turnovers","m":16.955,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":16.955,"l":[]},{"c":"Laois Fouls","m":16.974,"l":["Offensive Third"]},{"c":"Laois Fouls","m":18.045,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":18.873,"l":["Point"]},{"c":"Opp Total Score Placed","m":18.995,"l":[]},{"c":"Opp Eff Score Placed","m":18.995,"l":[]},{"c":"Laois Puckouts","m":19.208,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":19.287,"l":[]},{"c":"Laois Turnovers","m":19.398,"l":["Middle Third"]},{"c":"Laois Possessions","m":19.398,"l":[]},{"c":"Oppposition Turnovers","m":19.524,"l":["Middle Third"]},{"c":"Opposition Possessions","m":19.524,"l":[]},{"c":"Laois Turnovers","m":19.668,"l":["Middle Third"]},{"c":"Laois Possessions","m":19.668,"l":[]},{"c":"Laois Attacks","m":19.714,"l":[]},{"c":"Laois Shots From Play","m":19.756,"l":["Wides"]},{"c":"Opposition Puckouts","m":20.104,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":20.091,"l":[]},{"c":"Laois Turnovers","m":20.218,"l":["Defensive Third"]},{"c":"Laois Possessions","m":20.336,"l":[]},{"c":"Laois Sideline","m":20.515,"l":[]},{"c":"Ruck","m":20.532,"l":["Laois Control Error","Opposition Won"]},{"c":"Oppposition Turnovers","m":20.626,"l":["Middle Third"]},{"c":"Opposition Possessions","m":20.626,"l":[]},{"c":"Laois Turnovers","m":20.759,"l":["Defensive Third"]},{"c":"Laois Possessions","m":20.759,"l":[]},{"c":"Opposition Fouls","m":20.759,"l":["Offensive Third"]},{"c":"Laois Attacks","m":21.232,"l":[]},{"c":"Laois Shots From Play","m":21.267,"l":["Blocked"]},{"c":"Laois Shots From Play","m":21.465,"l":["Wides"]},{"c":"Opposition Puckouts","m":21.829,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":21.907,"l":["Middle Third"]},{"c":"Laois Fouls","m":21.907,"l":["Middle Third"]},{"c":"Opposition Possessions","m":21.907,"l":[]},{"c":"Opposition Shots From Placed","m":22.87,"l":["Wides"]},{"c":"Laois Puckouts","m":23.07,"l":["Long","Contested","Opposition Won Clean","Opposition Won"]},{"c":"Opposition Possessions","m":23.141,"l":[]},{"c":"Laois Turnovers","m":23.167,"l":["Middle Third"]},{"c":"Laois Possessions","m":23.167,"l":[]},{"c":"Opposition Fouls","m":23.183,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":23.828,"l":["Point"]},{"c":"Laois Total Score Placed","m":23.888,"l":[]},{"c":"Laois Eff Score Placed","m":23.909,"l":[]},{"c":"Opposition Puckouts","m":24.095,"l":["Medium","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":24.14,"l":[]},{"c":"Opposition Attacks","m":24.169,"l":[]},{"c":"Opposition Shots From Play","m":24.427,"l":["Point"]},{"c":"Opp Eff Score Play","m":24.528,"l":[]},{"c":"Laois Puckouts","m":24.87,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Ruck","m":24.987,"l":["Laois Puckout","Opposition Won"]},{"c":"Opposition Possessions","m":25.227,"l":[]},{"c":"Laois Turnovers","m":25.402,"l":["Defensive Third"]},{"c":"Laois Possessions","m":25.402,"l":[]},{"c":"Oppposition Turnovers","m":25.517,"l":["Middle Third"]},{"c":"Opposition Possessions","m":25.517,"l":[]},{"c":"Laois Turnovers","m":25.623,"l":["Middle Third"]},{"c":"Laois Possessions","m":25.623,"l":[]},{"c":"Laois Attacks","m":25.683,"l":[]},{"c":"Laois Shots From Play","m":25.8,"l":["Point"]},{"c":"Laois Eff Score Play","m":25.927,"l":[]},{"c":"Opposition Puckouts","m":26.05,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":26.066,"l":[]},{"c":"Opposition Sideline","m":26.757,"l":[]},{"c":"Laois Turnovers","m":26.875,"l":["Defensive Third"]},{"c":"Laois Possessions","m":26.875,"l":[]},{"c":"Ruck","m":26.925,"l":["Laois Unforced Error","Opposition Won"]},{"c":"Oppposition Turnovers","m":26.968,"l":["Offensive Third"]},{"c":"Opposition Possessions","m":26.994,"l":[]},{"c":"Opposition Shots From Play","m":26.994,"l":["Blocked"]},{"c":"Laois Fouls","m":27.049,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":27.854,"l":["Point"]},{"c":"Opp Total Score Placed","m":27.854,"l":[]},{"c":"Opp Eff Score Placed","m":27.854,"l":[]},{"c":"Laois Puckouts","m":28.028,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":28.101,"l":[]},{"c":"Laois Attacks","m":28.167,"l":[]},{"c":"Oppposition Turnovers","m":28.25,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":28.25,"l":[]},{"c":"Laois Fouls","m":28.456,"l":["Offensive Third"]},{"c":"Laois Possessions","m":29.209,"l":[]},{"c":"Laois Turnovers","m":29.238,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":29.326,"l":["Middle Third"]},{"c":"Opposition Possessions","m":29.326,"l":[]},{"c":"Opposition Attacks","m":29.461,"l":[]},{"c":"Laois Turnovers","m":29.472,"l":["Defensive Third"]},{"c":"Laois Possessions","m":29.472,"l":[]},{"c":"Oppposition Turnovers","m":29.809,"l":["Middle Third"]},{"c":"Opposition Possessions","m":29.809,"l":[]},{"c":"Laois Turnovers","m":30.018,"l":["Defensive Third"]},{"c":"Laois Possessions","m":30.018,"l":[]},{"c":"Opposition Fouls","m":30.1,"l":["Offensive Third"]},{"c":"Oppposition Turnovers","m":30.371,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":30.371,"l":[]},{"c":"Opposition Sideline","m":30.932,"l":[]},{"c":"Laois Turnovers","m":31.059,"l":["Middle Third"]},{"c":"Laois Possessions","m":31.074,"l":[]},{"c":"Oppposition Turnovers","m":31.205,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":31.205,"l":[]},{"c":"Laois Turnovers","m":31.422,"l":["Defensive Third"]},{"c":"Laois Possessions","m":31.422,"l":[]},{"c":"Laois Attacks","m":31.75,"l":[]},{"c":"Oppposition Turnovers","m":31.837,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":31.837,"l":[]},{"c":"Laois Turnovers","m":31.925,"l":["Middle Third"]},{"c":"Laois Possessions","m":31.925,"l":[]},{"c":"Laois Shots From Play","m":31.925,"l":["Point"]},{"c":"Laois Eff Score Play","m":32.063,"l":[]},{"c":"Opposition Puckouts","m":32.375,"l":["Contested","Opposition Won","Opposition Won Clean","Medium"]},{"c":"Opposition Possessions","m":32.377,"l":[]},{"c":"Opposition Attacks","m":32.504,"l":[]},{"c":"Laois Turnovers","m":32.63,"l":["Defensive Third"]},{"c":"Laois Possessions","m":32.63,"l":[]},{"c":"Opposition Fouls","m":32.63,"l":["Offensive Third"]},{"c":"Oppposition Turnovers","m":33.205,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":33.205,"l":[]},{"c":"Opposition Sideline","m":33.684,"l":[]},{"c":"Opposition Attacks","m":33.777,"l":[]},{"c":"Laois Turnovers","m":33.822,"l":["Defensive Third"]},{"c":"Laois Possessions","m":33.822,"l":[]},{"c":"Oppposition Turnovers","m":34.013,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":34.013,"l":[]},{"c":"Opposition Attacks","m":34.215,"l":[]},{"c":"Laois Fouls","m":34.203,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":35.024,"l":["Point"]},{"c":"Opp Total Score Placed","m":35.1,"l":[]},{"c":"Opp Eff Score Placed","m":35.1,"l":[]},{"c":"Laois Puckouts","m":35.236,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":35.31,"l":[]},{"c":"Laois Attacks","m":35.336,"l":[]},{"c":"Laois Shots From Play","m":35.364,"l":["Point"]},{"c":"Laois Eff Score Play","m":35.451,"l":[]},{"c":"Opposition Puckouts","m":35.838,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":35.88,"l":[]},{"c":"Opposition Attacks","m":35.92,"l":[]},{"c":"Opposition Shots From Play","m":35.919,"l":["Point"]},{"c":"Opp Eff Score Play","m":36.046,"l":[]},{"c":"Laois Puckouts","m":36.203,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":36.193,"l":[]},{"c":"Oppposition Turnovers","m":36.36,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":36.36,"l":[]},{"c":"Opposition Attacks","m":36.519,"l":[]},{"c":"Opposition Goal Chance","m":36.598,"l":[]},{"c":"Opposition Shots From Play","m":36.662,"l":["Goal"]},{"c":"Opp Eff Score Play","m":36.696,"l":[]},{"c":"Laois Puckouts","m":36.942,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":36.981,"l":[]},{"c":"Opposition Fouls","m":36.998,"l":["Offensive Third"]},{"c":"Laois Possessions","m":38.505,"l":[]},{"c":"Laois Attacks","m":38.547,"l":[]},{"c":"Oppposition Turnovers","m":38.664,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":38.664,"l":[]},{"c":"Ruck","m":38.931,"l":["Laois Tackle","Laois Won"]},{"c":"Laois Turnovers","m":39.071,"l":["Middle Third"]},{"c":"Laois Possessions","m":39.071,"l":[]},{"c":"Laois Attacks","m":39.088,"l":[]},{"c":"Laois Shots From Play","m":39.12,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":39.128,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":39.128,"l":[]},{"c":"Opposition Sideline","m":39.642,"l":[]},{"c":"Opposition Attacks","m":39.772,"l":[]},{"c":"Laois Turnovers","m":39.901,"l":["Defensive Third"]},{"c":"Laois Possessions","m":39.91,"l":[]},{"c":"Laois Attacks","m":40.115,"l":[]},{"c":"Oppposition Turnovers","m":40.222,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":40.222,"l":[]},{"c":"Laois Turnovers","m":40.336,"l":["Middle Third"]},{"c":"Laois Possessions","m":40.336,"l":[]},{"c":"Laois Attacks","m":40.442,"l":[]},{"c":"Laois Shots From Play","m":40.457,"l":["Point"]},{"c":"Laois Eff Score Play","m":40.536,"l":[]},{"c":"Opposition Puckouts","m":40.87,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":40.998,"l":[]},{"c":"Laois Attacks","m":41.133,"l":[]},{"c":"Laois Shots From Play","m":41.132,"l":["Wides"]},{"c":"Opposition Puckouts","m":41.467,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":41.502,"l":[]},{"c":"Laois Attacks","m":41.666,"l":[]},{"c":"Laois Goal Chance","m":41.705,"l":[]},{"c":"Laois Shots From Play","m":41.755,"l":["Goal"]},{"c":"Laois Eff Score Play","m":41.788,"l":[]},{"c":"Opposition Puckouts","m":42.417,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":42.461,"l":[]},{"c":"Opposition Attacks","m":42.477,"l":[]},{"c":"Laois Turnovers","m":42.513,"l":["Middle Third"]},{"c":"Laois Possessions","m":42.513,"l":[]},{"c":"Opposition Fouls","m":42.513,"l":["Middle Third"]},{"c":"Laois Attacks","m":42.761,"l":[]},{"c":"Opposition Fouls","m":42.851,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":43.398,"l":["Point"]},{"c":"Laois Total Score Placed","m":43.469,"l":[]},{"c":"Laois Eff Score Placed","m":43.495,"l":[]},{"c":"Opposition Puckouts","m":43.61,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":43.614,"l":[]},{"c":"Laois Turnovers","m":43.816,"l":["Defensive Third"]},{"c":"Laois Possessions","m":43.816,"l":[]},{"c":"Oppposition Turnovers","m":43.96,"l":["Middle Third"]},{"c":"Opposition Possessions","m":43.96,"l":[]},{"c":"Laois Turnovers","m":44.172,"l":["Defensive Third"]},{"c":"Laois Possessions","m":44.172,"l":[]},{"c":"Laois Puckouts","m":44.368,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":44.37,"l":[]},{"c":"Laois Attacks","m":44.537,"l":[]},{"c":"Laois Shots From Play","m":44.532,"l":["Short"]},{"c":"Oppposition Turnovers","m":44.669,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":44.669,"l":[]},{"c":"Laois Turnovers","m":44.823,"l":["Middle Third"]},{"c":"Laois Possessions","m":44.823,"l":[]},{"c":"Laois Attacks","m":44.917,"l":[]},{"c":"Laois Shots From Play","m":44.932,"l":["Point"]},{"c":"Laois Eff Score Play","m":45.015,"l":[]},{"c":"Opposition Puckouts","m":45.346,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":45.438,"l":[]},{"c":"Opposition Attacks","m":45.455,"l":[]},{"c":"Opposition Shots From Play","m":45.516,"l":["Blocked"]},{"c":"Laois Turnovers","m":45.574,"l":["Defensive Third"]},{"c":"Laois Possessions","m":45.574,"l":[]},{"c":"Oppposition Turnovers","m":45.683,"l":["Middle Third"]},{"c":"Opposition Possessions","m":45.683,"l":[]},{"c":"Opposition Sideline","m":46.205,"l":[]},{"c":"Opposition Shots From Placed","m":47.235,"l":["Wides"]},{"c":"Laois Puckouts","m":47.394,"l":["Opposition Won","Medium","Opposition Won Clean","Contested"]},{"c":"Opposition Possessions","m":47.431,"l":[]},{"c":"Opposition Attacks","m":47.512,"l":[]},{"c":"Laois Turnovers","m":47.684,"l":["Middle Third"]},{"c":"Laois Possessions","m":47.684,"l":[]},{"c":"Laois Shots From Play","m":47.773,"l":["Wides"]},{"c":"Opposition Puckouts","m":48.49,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Ruck","m":48.549,"l":["Opp Puckout","Laois Won"]},{"c":"Laois Possessions","m":48.626,"l":[]},{"c":"Laois Attacks","m":48.869,"l":[]},{"c":"Laois Shots From Play","m":48.908,"l":["Point"]},{"c":"Laois Eff Score Play","m":49.012,"l":[]},{"c":"Opposition Puckouts","m":49.264,"l":["Long","Contested","Laois Won","Laois Won Free"]},{"c":"Laois Possessions","m":49.372,"l":[]},{"c":"Oppposition Turnovers","m":50.013,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":50.013,"l":[]},{"c":"Laois Turnovers","m":50.095,"l":["Middle Third"]},{"c":"Laois Possessions","m":50.095,"l":[]},{"c":"Laois Fouls","m":50.217,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":50.217,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":51.005,"l":["Wides"]},{"c":"Laois Puckouts","m":51.164,"l":["Medium","Contested","Opposition Won","Opposition Won Sideline"]},{"c":"Opposition Sideline","m":51.66,"l":[]},{"c":"Opposition Shots From Placed","m":52.184,"l":["Point"]},{"c":"Opp Total Score Placed","m":52.184,"l":[]},{"c":"Opp Eff Score Placed","m":52.184,"l":[]},{"c":"Opposition Sideline","m":52.168,"l":[]},{"c":"Laois Puckouts","m":52.374,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":52.362,"l":[]},{"c":"Laois Fouls","m":52.434,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":52.8,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":53.184,"l":["Point"]},{"c":"Opp Total Score Placed","m":53.228,"l":[]},{"c":"Opp Eff Score Placed","m":53.274,"l":[]},{"c":"Laois Puckouts","m":53.397,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":53.488,"l":[]},{"c":"Laois Attacks","m":53.561,"l":[]},{"c":"Laois Fouls","m":53.551,"l":["Offensive Third"]},{"c":"Oppposition Turnovers","m":53.551,"l":["Defensive Third"]},{"c":"Ruck","m":54.232,"l":["Laois Control Error","Opposition Won"]},{"c":"Opposition Possessions","m":54.523,"l":[]},{"c":"Opposition Attacks","m":54.585,"l":[]},{"c":"Laois Fouls","m":54.664,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":55.409,"l":["Point"]},{"c":"Opp Total Score Placed","m":55.479,"l":[]},{"c":"Opp Eff Score Placed","m":55.503,"l":[]},{"c":"Laois Puckouts","m":55.574,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":55.564,"l":[]},{"c":"Oppposition Turnovers","m":55.821,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":55.821,"l":[]},{"c":"Laois Turnovers","m":55.92,"l":["Middle Third"]},{"c":"Laois Possessions","m":55.92,"l":[]},{"c":"Laois Shots From Play","m":56.026,"l":["Point"]},{"c":"Laois Eff Score Play","m":56.059,"l":[]},{"c":"Opposition Puckouts","m":56.281,"l":["Long","Contested","Laois Won","Laois Won Sideline"]},{"c":"Laois Sideline","m":56.722,"l":[]},{"c":"Oppposition Turnovers","m":56.734,"l":["Middle Third"]},{"c":"Opposition Possessions","m":56.734,"l":[]},{"c":"Laois Turnovers","m":56.796,"l":["Defensive Third"]},{"c":"Laois Possessions","m":56.796,"l":[]},{"c":"Ruck","m":57.034,"l":["Laois Control Error","Opposition Won"]},{"c":"Oppposition Turnovers","m":57.117,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":57.117,"l":[]},{"c":"Ruck","m":57.285,"l":["Laois Tackle","Laois Won"]},{"c":"Laois Turnovers","m":57.432,"l":["Middle Third"]},{"c":"Laois Possessions","m":57.432,"l":[]},{"c":"Laois Attacks","m":57.448,"l":[]},{"c":"Laois Shots From Play","m":57.507,"l":["Blocked"]},{"c":"Laois Shots From Play","m":57.615,"l":["Wides"]},{"c":"Opposition Puckouts","m":58.11,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":58.215,"l":[]},{"c":"Laois Attacks","m":58.43,"l":[]},{"c":"Laois Shots From Play","m":58.462,"l":["Wides"]},{"c":"Opposition Puckouts","m":59.02,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":59.033,"l":[]},{"c":"Opposition Attacks","m":59.201,"l":[]},{"c":"Opposition Goal Chance","m":59.189,"l":[]},{"c":"Opposition Shots From Play","m":59.239,"l":["Goal"]},{"c":"Opp Eff Score Play","m":59.272,"l":[]},{"c":"Laois Puckouts","m":59.676,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":59.678,"l":[]},{"c":"Oppposition Turnovers","m":59.826,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":59.826,"l":[]},{"c":"Laois Turnovers","m":60.146,"l":["Defensive Third"]},{"c":"Laois Possessions","m":60.146,"l":[]},{"c":"Opposition Fouls","m":60.146,"l":["Offensive Third"]},{"c":"Opposition Fouls","m":60.568,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":61.215,"l":["Wides"]},{"c":"Opposition Puckouts","m":61.566,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":61.673,"l":[]},{"c":"Opposition Attacks","m":61.689,"l":[]},{"c":"Laois Turnovers","m":61.733,"l":["Middle Third"]},{"c":"Laois Possessions","m":61.733,"l":[]},{"c":"Oppposition Turnovers","m":61.883,"l":["Middle Third"]},{"c":"Opposition Possessions","m":61.883,"l":[]},{"c":"Opposition Attacks","m":61.982,"l":[]},{"c":"Laois Turnovers","m":61.981,"l":["Middle Third"]},{"c":"Laois Possessions","m":61.981,"l":[]},{"c":"Opposition Fouls","m":61.981,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":62.643,"l":["Point"]},{"c":"Laois Total Score Placed","m":62.712,"l":[]},{"c":"Laois Eff Score Placed","m":62.712,"l":[]},{"c":"Opposition Puckouts","m":62.954,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Ruck","m":63.029,"l":["Opp Puckout","Opposition Won"]},{"c":"Opposition Possessions","m":63.053,"l":[]},{"c":"Opposition Attacks","m":63.07,"l":[]},{"c":"Opposition Goal Chance","m":63.083,"l":[]},{"c":"Opposition Shots From Play","m":63.133,"l":["Goal"]},{"c":"Opp Eff Score Play","m":63.166,"l":[]},{"c":"Laois Puckouts","m":63.825,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":64.129,"l":[]},{"c":"Laois Turnovers","m":64.204,"l":["Defensive Third"]},{"c":"Laois Possessions","m":64.204,"l":[]},{"c":"Oppposition Turnovers","m":64.332,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":64.332,"l":[]},{"c":"Opposition Attacks","m":64.498,"l":[]},{"c":"Laois Fouls","m":64.525,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":65.334,"l":["Point"]},{"c":"Opp Total Score Placed","m":65.409,"l":[]},{"c":"Opp Eff Score Placed","m":65.409,"l":[]},{"c":"Laois Puckouts","m":65.528,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":65.587,"l":[]},{"c":"Laois Turnovers","m":65.715,"l":["Defensive Third"]},{"c":"Laois Possessions","m":65.715,"l":[]},{"c":"Laois Attacks","m":65.884,"l":[]},{"c":"Laois Shots From Play","m":66.029,"l":["Wides"]},{"c":"Opposition Puckouts","m":66.381,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":66.458,"l":[]},{"c":"Oppposition Turnovers","m":66.578,"l":["Middle Third"]},{"c":"Opposition Possessions","m":66.578,"l":[]},{"c":"Opposition Sideline","m":67.122,"l":[]},{"c":"Opposition Attacks","m":67.198,"l":[]},{"c":"Laois Fouls","m":67.185,"l":["Defensive Third"]},{"c":"Opposition Goal Chance","m":67.144,"l":[]},{"c":"Opposition Shots From Play","m":67.206,"l":["Saved"]},{"c":"Opposition Shots From Placed","m":67.848,"l":["Point"]},{"c":"Opp Total Score Placed","m":67.848,"l":[]},{"c":"Opp Eff Score Placed","m":67.848,"l":[]},{"c":"Opposition Puckouts","m":68.017,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Ruck","m":68.079,"l":["Laois Puckout","Opposition Won"]},{"c":"Opposition Possessions","m":68.176,"l":[]},{"c":"Opposition Attacks","m":68.286,"l":[]},{"c":"Laois Turnovers","m":68.408,"l":["Defensive Third"]},{"c":"Laois Possessions","m":68.408,"l":[]},{"c":"Opposition Fouls","m":68.408,"l":["Offensive Third"]},{"c":"Oppposition Turnovers","m":68.724,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":68.724,"l":[]},{"c":"Opposition Fouls","m":68.803,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":69.192,"l":["Point"]},{"c":"Laois Total Score Placed","m":69.281,"l":[]},{"c":"Laois Eff Score Placed","m":69.312,"l":[]},{"c":"Opposition Puckouts","m":69.507,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":69.58,"l":[]},{"c":"Opposition Attacks","m":69.613,"l":[]},{"c":"Laois Turnovers","m":69.643,"l":["Defensive Third"]},{"c":"Laois Possessions","m":69.643,"l":[]},{"c":"Laois Attacks","m":69.855,"l":[]},{"c":"Opposition Fouls","m":69.848,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":70.395,"l":["Point"]},{"c":"Laois Total Score Placed","m":70.395,"l":[]},{"c":"Laois Eff Score Placed","m":70.395,"l":[]},{"c":"Opposition Puckouts","m":70.647,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Possessions","m":70.717,"l":[]},{"c":"Laois Shots From Play","m":71.038,"l":["Point"]},{"c":"Laois Eff Score Play","m":71.151,"l":[]},{"c":"Opposition Puckouts","m":71.42,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":71.412,"l":[]},{"c":"Ruck","m":71.586,"l":["Opp OP Strike","Opposition Won"]},{"c":"Opposition Attacks","m":71.658,"l":[]},{"c":"Opposition Shots From Play","m":71.641,"l":["Point"]},{"c":"Opp Eff Score Play","m":71.736,"l":[]},{"c":"Laois Puckouts","m":71.8,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Possessions","m":71.815,"l":[]},{"c":"Laois Turnovers","m":72.008,"l":["Defensive Third"]},{"c":"Laois Possessions","m":72.008,"l":[]},{"c":"Laois Attacks","m":72.147,"l":[]},{"c":"Oppposition Turnovers","m":72.19,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":72.19,"l":[]},{"c":"Laois Turnovers","m":72.375,"l":["Defensive Third"]},{"c":"Laois Possessions","m":72.375,"l":[]},{"c":"Oppposition Turnovers","m":72.509,"l":["Middle Third"]},{"c":"Opposition Possessions","m":72.509,"l":[]},{"c":"Opposition Attacks","m":72.536,"l":[]},{"c":"Opposition Shots From Play","m":72.52,"l":["Point"]},{"c":"Laois Puckouts","m":72.919,"l":["Medium","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":72.92,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":72.92,"l":[]},{"c":"Laois Possessions","m":72.93,"l":[]},{"c":"Laois Turnovers","m":73.069,"l":["Middle Third"]},{"c":"Laois Possessions","m":73.069,"l":[]},{"c":"Laois Attacks","m":73.085,"l":[]},{"c":"Opposition Fouls","m":73.183,"l":["Defensive Third"]},{"c":"Opposition Puckouts","m":74.225,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Possessions","m":74.241,"l":[]},{"c":"Laois Turnovers","m":74.445,"l":["Defensive Third"]},{"c":"Laois Possessions","m":74.445,"l":[]},{"c":"Laois Goal Chance","m":74.555,"l":[]},{"c":"Laois Attacks","m":74.622,"l":[]},{"c":"Laois Shots From Play","m":74.609,"l":["Saved"]},{"c":"Oppposition Turnovers","m":74.755,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":74.755,"l":[]},{"c":"Opposition Attacks","m":74.887,"l":[]},{"c":"Opposition Shots From Play","m":74.87,"l":["Point"]},{"c":"Opp Eff Score Play","m":74.989,"l":[]},{"c":"Laois Puckouts","m":75.407,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Possessions","m":75.418,"l":[]},{"c":"Oppposition Turnovers","m":75.576,"l":["Defensive Third"]},{"c":"Opposition Possessions","m":75.576,"l":[]},{"c":"Opposition Fouls","m":75.849,"l":["Offensive Third"]},{"c":"Oppposition Turnovers","m":76.318,"l":["Middle Third"]},{"c":"Opposition Possessions","m":76.318,"l":[]},{"c":"Ruck","m":76.475,"l":["Laois Control Error","Laois Won"]},{"c":"Laois Turnovers","m":76.55,"l":["Defensive Third"]},{"c":"Laois Possessions","m":76.55,"l":[]},{"c":"Laois Attacks","m":76.736,"l":[]},{"c":"Opposition Fouls","m":76.719,"l":["Defensive Third"]}];
+const EVENTS = [{"c":"Opposition Shots From Play","m":0.064,"l":["Short"]},{"c":"Laois Turnovers","m":0.126,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":0.294,"l":["Middle Third"]},{"c":"Opposition Sideline","m":0.451,"l":[]},{"c":"Opposition Shots From Play","m":0.483,"l":["Point"]},{"c":"Laois Puckouts","m":0.739,"l":["Contested","Long","Laois Won","Laois Won Broken"]},{"c":"Laois Goal Chance","m":0.873,"l":[]},{"c":"Laois Shots From Play","m":0.923,"l":["Saved"]},{"c":"Laois Goal Chance","m":0.929,"l":[]},{"c":"Laois Shots From Play","m":0.979,"l":["Goal"]},{"c":"Opposition Puckouts","m":1.295,"l":["Medium","Opposition Won","Opposition Won Clean","Contested"]},{"c":"Opposition Shots From Play","m":1.442,"l":["Point"]},{"c":"Laois Puckouts","m":1.673,"l":["Medium","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":1.814,"l":["Defensive Third"]},{"c":"Opposition Sideline","m":2.071,"l":[]},{"c":"Opposition Fouls","m":2.146,"l":["Middle Third"]},{"c":"Laois Turnovers","m":2.146,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":2.893,"l":["Point"]},{"c":"Opposition Puckouts","m":3.138,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Shots From Play","m":3.215,"l":["Wides"]},{"c":"Laois Puckouts","m":3.407,"l":["Medium","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":3.669,"l":["Middle Third"]},{"c":"Opposition Shots From Play","m":3.815,"l":["Wides"]},{"c":"Laois Puckouts","m":4.0,"l":["Medium","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":4.224,"l":["Middle Third"]},{"c":"Laois Fouls","m":4.467,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":5.49,"l":["Point"]},{"c":"Laois Puckouts","m":5.697,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Turnovers","m":6.035,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":6.434,"l":["Defensive Third"]},{"c":"Laois Fouls","m":6.456,"l":["Offensive Third"]},{"c":"Laois Turnovers","m":6.812,"l":["Defensive Third"]},{"c":"Laois Sideline","m":7.138,"l":[]},{"c":"Oppposition Turnovers","m":7.185,"l":["Middle Third"]},{"c":"Laois Turnovers","m":7.319,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":7.359,"l":["Point"]},{"c":"Opposition Puckouts","m":7.611,"l":["Uncontested","Medium","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Shots From Play","m":7.809,"l":["Point"]},{"c":"Laois Puckouts","m":8.04,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Sideline","m":8.664,"l":[]},{"c":"Oppposition Turnovers","m":8.732,"l":["Defensive Third"]},{"c":"Laois Fouls","m":8.828,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":9.481,"l":["Point"]},{"c":"Laois Puckouts","m":9.699,"l":["Medium","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":9.861,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":9.918,"l":["Point"]},{"c":"Laois Puckouts","m":10.27,"l":["Medium","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Shots From Play","m":10.391,"l":["Short"]},{"c":"Laois Turnovers","m":10.453,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":10.932,"l":["Wides"]},{"c":"Opposition Puckouts","m":11.215,"l":["Long","Uncontested","Laois Won","Laois Won Sideline"]},{"c":"Laois Sideline","m":11.752,"l":[]},{"c":"Laois Shots From Play","m":12.107,"l":["Point"]},{"c":"Opposition Puckouts","m":12.382,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Oppposition Turnovers","m":12.611,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":12.931,"l":["Blocked"]},{"c":"Opposition Shots From Play","m":13.012,"l":["Blocked"]},{"c":"Laois Turnovers","m":13.064,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":13.288,"l":["Middle Third"]},{"c":"Opposition Shots From Play","m":13.383,"l":["Point"]},{"c":"Laois Puckouts","m":13.667,"l":["Contested","Short","Opposition Won","Opposition Won Broken"]},{"c":"Laois Fouls","m":13.75,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":14.644,"l":["Point"]},{"c":"Laois Puckouts","m":14.91,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Turnovers","m":15.157,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":15.302,"l":["Point"]},{"c":"Opposition Puckouts","m":15.576,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":15.705,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":15.838,"l":["Point"]},{"c":"Opposition Puckouts","m":16.018,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":16.248,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":16.369,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":16.577,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":16.712,"l":["Wides"]},{"c":"Opposition Puckouts","m":17.007,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Sideline","m":17.785,"l":[]},{"c":"Opposition Fouls","m":17.82,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":18.525,"l":["Point"]},{"c":"Opposition Puckouts","m":18.739,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Shots From Play","m":19.01,"l":["Wides"]},{"c":"Laois Puckouts","m":19.278,"l":["Medium","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Shots From Play","m":19.409,"l":["Point"]},{"c":"Laois Puckouts","m":19.589,"l":["Medium","Laois Won","Laois Won Clean","Uncontested"]},{"c":"Laois Goal Chance","m":19.803,"l":[]},{"c":"Laois Shots From Play","m":19.853,"l":["Saved"]},{"c":"Laois Shots From Placed","m":20.749,"l":["Point"]},{"c":"Opposition Puckouts","m":20.954,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":21.11,"l":["Wides"]},{"c":"Opposition Puckouts","m":21.329,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":21.559,"l":["Defensive Third"]},{"c":"Laois Sideline","m":22.213,"l":[]},{"c":"Oppposition Turnovers","m":22.225,"l":["Offensive Third"]},{"c":"Opposition Shots From Play","m":22.225,"l":["Point"]},{"c":"Laois Puckouts","m":22.467,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Sideline","m":22.71,"l":[]},{"c":"Oppposition Turnovers","m":22.768,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":22.991,"l":["Wides"]},{"c":"Laois Puckouts","m":23.277,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":23.428,"l":["Middle Third"]},{"c":"Opposition Shots From Play","m":23.523,"l":["Point"]},{"c":"Laois Puckouts","m":23.793,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Shots From Play","m":24.085,"l":["Blocked"]},{"c":"Laois Turnovers","m":24.145,"l":["Middle Third"]},{"c":"Laois Sideline","m":24.52,"l":[]},{"c":"Opposition Fouls","m":24.659,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":25.362,"l":["Point"]},{"c":"Opposition Puckouts","m":25.626,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Oppposition Turnovers","m":26.042,"l":["Middle Third"]},{"c":"Laois Turnovers","m":26.237,"l":["Middle Third"]},{"c":"Laois Fouls","m":26.29,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":26.29,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":26.931,"l":["Point"]},{"c":"Laois Puckouts","m":27.193,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":27.361,"l":["Short"]},{"c":"Oppposition Turnovers","m":27.478,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":27.589,"l":["Point"]},{"c":"Laois Puckouts","m":27.82,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":27.957,"l":["Wides"]},{"c":"Opposition Puckouts","m":28.197,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Fouls","m":28.331,"l":["Offensive Third"]},{"c":"Laois Turnovers","m":28.331,"l":["Defensive Third"]},{"c":"Opposition Fouls","m":28.839,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":29.832,"l":["Point"]},{"c":"Opposition Puckouts","m":30.01,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Fouls","m":30.092,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":30.687,"l":["Point"]},{"c":"Laois Puckouts","m":30.867,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":31.015,"l":["Middle Third"]},{"c":"Opposition Sideline","m":31.436,"l":[]},{"c":"Laois Turnovers","m":31.454,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":31.696,"l":["Point"]},{"c":"Opposition Puckouts","m":31.92,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Oppposition Turnovers","m":32.087,"l":["Defensive Third"]},{"c":"Laois Fouls","m":32.253,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":33.172,"l":["Point"]},{"c":"Laois Puckouts","m":33.386,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":33.587,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":33.769,"l":["Wides"]},{"c":"Laois Puckouts","m":33.972,"l":["Uncontested","Laois Won","Laois Won Sideline","Medium"]},{"c":"Laois Sideline","m":34.393,"l":[]},{"c":"Laois Shots From Play","m":34.487,"l":["Point"]},{"c":"Opposition Puckouts","m":34.75,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Oppposition Turnovers","m":34.962,"l":["Middle Third"]},{"c":"Opposition Shots From Play","m":35.062,"l":["Wides"]},{"c":"Laois Turnovers","m":35.828,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":36.007,"l":["Middle Third"]},{"c":"Opposition Shots From Play","m":36.308,"l":["Point"]},{"c":"Laois Puckouts","m":36.542,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Turnovers","m":36.848,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":37.086,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":37.33,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":37.513,"l":["Wides"]},{"c":"Opposition Puckouts","m":37.768,"l":["Medium","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":37.933,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":37.983,"l":["Short"]},{"c":"Oppposition Turnovers","m":38.052,"l":["Defensive Third"]},{"c":"Opposition Fouls","m":38.368,"l":["Middle Third"]},{"c":"Laois Turnovers","m":38.368,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":39.074,"l":["Point"]},{"c":"Opposition Puckouts","m":39.295,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":39.608,"l":["Point"]},{"c":"Opposition Puckouts","m":39.896,"l":["Medium","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":40.087,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":40.178,"l":["Middle Third"]},{"c":"Laois Turnovers","m":40.317,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":40.431,"l":["Middle Third"]},{"c":"Laois Fouls","m":40.431,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":41.247,"l":["Short"]},{"c":"Laois Turnovers","m":41.448,"l":["Defensive Third"]},{"c":"Laois Sideline","m":41.891,"l":[]},{"c":"Laois Shots From Play","m":42.143,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":42.402,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":42.695,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":42.793,"l":["Wides"]},{"c":"Opposition Puckouts","m":43.407,"l":["Medium","Contested","Laois Won","Laois Won Broken"]},{"c":"Oppposition Turnovers","m":43.693,"l":["Defensive Third"]},{"c":"Laois Fouls","m":43.8,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":44.655,"l":["Wides"]},{"c":"Laois Puckouts","m":44.857,"l":["Medium","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":44.977,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":45.039,"l":["Defensive Third"]},{"c":"Laois Fouls","m":45.039,"l":["Offensive Third"]},{"c":"Laois Turnovers","m":45.44,"l":["Defensive Third"]},{"c":"Opposition Fouls","m":45.742,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":46.553,"l":["Point"]},{"c":"Opposition Puckouts","m":46.988,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Opposition Shots From Play","m":47.386,"l":["Wides"]},{"c":"Laois Puckouts","m":47.597,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Turnovers","m":48.023,"l":["Defensive Third"]},{"c":"Opposition Fouls","m":48.252,"l":["Middle Third"]},{"c":"Laois Shots From Placed","m":49.104,"l":["Point"]},{"c":"Opposition Puckouts","m":49.255,"l":["Medium","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":49.54,"l":["Defensive Third"]},{"c":"Laois Goal Chance","m":49.716,"l":[]},{"c":"Laois Shots From Play","m":49.766,"l":["Saved"]},{"c":"Laois Shots From Play","m":49.869,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":49.985,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":50.238,"l":["Point"]},{"c":"Laois Puckouts","m":50.78,"l":["Medium","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":51.027,"l":["Blocked"]},{"c":"Laois Shots From Placed","m":51.985,"l":["Point"]},{"c":"Opposition Puckouts","m":52.132,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":52.355,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":52.466,"l":["Middle Third"]},{"c":"Laois Fouls","m":52.541,"l":["Middle Third"]},{"c":"Laois Fouls","m":52.778,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":53.775,"l":["Point"]},{"c":"Laois Puckouts","m":53.949,"l":["Long","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Opposition Shots From Play","m":54.077,"l":["Point"]},{"c":"Laois Puckouts","m":54.29,"l":["Medium","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Fouls","m":54.546,"l":["Defensive Third"]},{"c":"Opposition Shots From Placed","m":55.545,"l":["Point"]},{"c":"Laois Puckouts","m":55.715,"l":["Short","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":56.286,"l":["Point"]},{"c":"Opposition Puckouts","m":56.501,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":57.135,"l":["Blocked"]},{"c":"Laois Shots From Placed","m":58.178,"l":["Point"]},{"c":"Opposition Puckouts","m":58.887,"l":["Long","Uncontested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":58.92,"l":["Wides"]},{"c":"Opposition Puckouts","m":59.226,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":59.438,"l":["Point"]},{"c":"Opposition Puckouts","m":59.647,"l":["Long","Contested","Laois Won","Laois Won Sideline"]},{"c":"Laois Sideline","m":59.987,"l":[]},{"c":"Laois Shots From Play","m":60.092,"l":["Point"]},{"c":"Opposition Puckouts","m":60.339,"l":["Medium","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":60.477,"l":["Wides"]},{"c":"Opposition Puckouts","m":60.791,"l":["Long","Contested","Opposition Won","Opposition Won Broken"]},{"c":"Laois Turnovers","m":61.056,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":61.205,"l":["Point"]},{"c":"Opposition Puckouts","m":61.52,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Laois Shots From Play","m":61.71,"l":["Short"]},{"c":"Oppposition Turnovers","m":61.782,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":61.94,"l":["Short"]},{"c":"Laois Turnovers","m":61.997,"l":["Defensive Third"]},{"c":"Laois Goal Chance","m":62.228,"l":[]},{"c":"Laois Shots From Play","m":62.278,"l":["Goal"]},{"c":"Opposition Puckouts","m":62.607,"l":["Short","Uncontested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Turnovers","m":62.887,"l":["Defensive Third"]},{"c":"Oppposition Turnovers","m":63.058,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":63.338,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":63.589,"l":["Point"]},{"c":"Opposition Puckouts","m":63.991,"l":["Medium","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":64.075,"l":["Wides"]},{"c":"Opposition Puckouts","m":64.414,"l":["Long","Contested","Laois Won","Laois Won Broken"]},{"c":"Laois Shots From Play","m":64.685,"l":["Wides"]},{"c":"Opposition Puckouts","m":64.965,"l":["Long","Contested","Opposition Won","Opposition Won Clean"]},{"c":"Laois Fouls","m":65.047,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":65.58,"l":["Wides"]},{"c":"Laois Puckouts","m":66.16,"l":["Long","Contested","Laois Won","Laois Won Sideline"]},{"c":"Laois Sideline","m":66.814,"l":[]},{"c":"Oppposition Turnovers","m":67.021,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":67.072,"l":["Offensive Third"]},{"c":"Laois Sideline","m":67.994,"l":[]},{"c":"Oppposition Turnovers","m":68.208,"l":["Middle Third"]},{"c":"Laois Fouls","m":68.228,"l":["Middle Third"]},{"c":"Opposition Shots From Placed","m":68.885,"l":["Point"]},{"c":"Laois Puckouts","m":69.073,"l":["Short","Contested","Laois Won","Laois Won Clean"]},{"c":"Opposition Fouls","m":69.226,"l":["Defensive Third"]},{"c":"Laois Shots From Placed","m":69.992,"l":["Point"]},{"c":"Opposition Puckouts","m":70.487,"l":["Long","Contested","Laois Won","Laois Won Clean"]},{"c":"Oppposition Turnovers","m":70.645,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":70.816,"l":["Middle Third"]},{"c":"Laois Shots From Play","m":70.868,"l":["Short"]},{"c":"Oppposition Turnovers","m":70.932,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":71.157,"l":["Defensive Third"]},{"c":"Laois Shots From Play","m":71.386,"l":["Blocked"]},{"c":"Oppposition Turnovers","m":71.43,"l":["Defensive Third"]},{"c":"Laois Turnovers","m":71.487,"l":["Middle Third"]},{"c":"Oppposition Turnovers","m":71.517,"l":["Defensive Third"]},{"c":"Opposition Shots From Play","m":71.73,"l":["Blocked"]},{"c":"Opposition Goal Chance","m":71.681,"l":[]},{"c":"Opposition Shots From Play","m":71.959,"l":["Point"]},{"c":"Laois Puckouts","m":72.33,"l":["Medium","Uncontested","Laois Won","Laois Won Sideline"]},{"c":"Laois Sideline","m":72.749,"l":[]},{"c":"Oppposition Turnovers","m":72.821,"l":["Defensive Third"]},{"c":"Laois Fouls","m":73.111,"l":["Defensive Third"]},{"c":"Opposition Goal Chance","m":73.717,"l":[]},{"c":"Opposition Shots From Placed","m":73.888,"l":["Saved"]},{"c":"Laois Turnovers","m":73.951,"l":["Defensive Third"]}];
 
-// ============================================================
-// CONFIG
-// ============================================================
-const HT = 37;
-const FT = 77;
+const HT = 35;
+const FT = 73;
 const CHECKPOINTS = [0,5,10,15,20,25,30,HT,40,45,50,55,60,65,FT];
+const CP_LABELS = CHECKPOINTS.map(v => v === HT ? 'HT' : v === FT ? 'FT' : String(v));
 
 const COLORS = {
   gold: '#3d9be9',
   laois: '#5b8def',
   laoisSoft: '#8fb3f5',
-  opp: '#00c45a',
-  oppSoft: '#4ddb8c',
+  opp: '#f5a623',
+  oppSoft: '#f9c76a',
   text: '#f5f2ea',
   textDim: '#b8b0a0',
   textMuted: '#7a7468',
@@ -742,12 +335,10 @@ const COLORS = {
   surface2: '#1f1f1f'
 };
 
-// Build checkpoint tick labels (HT and FT labelled)
-const CP_LABELS = CHECKPOINTS.map(v => v === HT ? 'HT' : v === FT ? 'FT' : String(v));
+Chart.defaults.color = COLORS.textDim;
+Chart.defaults.font.family = "'Barlow Condensed', sans-serif";
+Chart.defaults.font.size = 12;
 
-// ============================================================
-// HELPERS
-// ============================================================
 function cumCount(pred) {
   return CHECKPOINTS.map(cp => EVENTS.filter(e => pred(e) && e.m <= cp).length);
 }
@@ -758,60 +349,34 @@ function countUpTo(pred, t) {
   return EVENTS.filter(e => pred(e) && e.m <= t).length;
 }
 
-const isShot = team => e => e.c === `${team} Shots From Play` || e.c === `${team} Shots From Placed`;
-const isScore = team => e =>
-  (e.c === `${team} Shots From Play` || e.c === `${team} Shots From Placed`)
-  && (e.l.includes('Goal') || e.l.includes('Point'));
-const isPlayShot = team => e => e.c === `${team} Shots From Play`;
-const isPlayScore = team => e => e.c === `${team} Shots From Play` && (e.l.includes('Goal') || e.l.includes('Point'));
-
-// ============================================================
-// CHART DEFAULTS
-// ============================================================
-Chart.defaults.color = COLORS.textDim;
-Chart.defaults.font.family = "'Barlow Condensed', sans-serif";
-Chart.defaults.font.size = 12;
+const isShot      = t => e => e.c === `${t} Shots From Play` || e.c === `${t} Shots From Placed`;
+const isScore     = t => e => (e.c === `${t} Shots From Play` || e.c === `${t} Shots From Placed`) && (e.l.includes('Goal') || e.l.includes('Point'));
+const isPlayShot  = t => e => e.c === `${t} Shots From Play`;
+const isPlayScore = t => e => e.c === `${t} Shots From Play` && (e.l.includes('Goal') || e.l.includes('Point'));
 
 const commonScales = (yMax, yTitle, yPercent) => ({
   x: {
     grid: { color: COLORS.grid, drawTicks: false },
     border: { display: false },
-    ticks: {
-      color: COLORS.textDim,
-      font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 },
-      callback: function(val, idx) { return CP_LABELS[idx]; }
-    },
-    title: { display: false }
+    ticks: { color: COLORS.textDim, font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 }, callback: (val, idx) => CP_LABELS[idx] }
   },
   y: {
-    beginAtZero: true,
-    max: yMax,
+    beginAtZero: true, max: yMax,
     grid: { color: COLORS.grid, drawTicks: false },
     border: { display: false },
-    ticks: {
-      color: COLORS.textDim,
-      font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 },
-      callback: function(val) { return yPercent ? val + '%' : val; }
-    },
-    title: {
-      display: !!yTitle,
-      text: yTitle || '',
-      color: COLORS.textMuted,
-      font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 }
-    }
+    ticks: { color: COLORS.textDim, font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 }, callback: val => yPercent ? val + '%' : val },
+    title: { display: !!yTitle, text: yTitle || '', color: COLORS.textMuted, font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 } }
   }
 });
 
-// Half-time vertical line plugin
 const htLinePlugin = {
   id: 'htLine',
   afterDraw(chart) {
     const { ctx, chartArea, scales } = chart;
     if (!chartArea) return;
-    const xScale = scales.x;
     const htIdx = CHECKPOINTS.indexOf(HT);
     if (htIdx < 0) return;
-    const xPx = xScale.getPixelForValue(htIdx);
+    const xPx = scales.x.getPixelForValue(htIdx);
     ctx.save();
     ctx.beginPath();
     ctx.setLineDash([5, 5]);
@@ -820,20 +385,17 @@ const htLinePlugin = {
     ctx.moveTo(xPx, chartArea.top);
     ctx.lineTo(xPx, chartArea.bottom);
     ctx.stroke();
-    // Label
     ctx.setLineDash([]);
     ctx.fillStyle = COLORS.gold;
     ctx.font = "500 10px 'Barlow Condensed', sans-serif";
     ctx.textAlign = 'center';
-    ctx.letterSpacing = '0.1em';
     ctx.fillText('HALF-TIME', xPx, chartArea.top + 12);
     ctx.restore();
   }
 };
 
-const pointStyle = (color) => ({
-  radius: 4,
-  hoverRadius: 6,
+const pointStyle = color => ({
+  radius: 4, hoverRadius: 6,
   backgroundColor: color,
   borderColor: 'rgba(255,255,255,0.5)',
   borderWidth: 1.5,
@@ -841,6 +403,11 @@ const pointStyle = (color) => ({
   pointBackgroundColor: color,
   pointBorderColor: 'rgba(255,255,255,0.5)'
 });
+
+const LEGEND_CFG = {
+  display: true, position: 'top', align: 'end',
+  labels: { boxWidth: 10, boxHeight: 10, usePointStyle: true, pointStyle: 'circle', color: COLORS.textDim, font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 }, padding: 14 }
+};
 
 function makeTooltip(formatter) {
   return {
@@ -860,325 +427,189 @@ function makeTooltip(formatter) {
     boxWidth: 8, boxHeight: 8, boxPadding: 4,
     callbacks: {
       title(items) {
-        const idx = items[0].dataIndex;
-        const v = CHECKPOINTS[idx];
+        const v = CHECKPOINTS[items[0].dataIndex];
         if (v === HT) return 'HALF-TIME';
         if (v === FT) return 'FULL-TIME';
-        return `MIN ${String(v).padStart(2, '0')}`;
+        return `MIN ${String(v).padStart(2,'0')}`;
       },
       label: formatter || (ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`)
     }
   };
 }
 
-const LEGEND_CFG = {
-  display: true,
-  position: 'top',
-  align: 'end',
-  labels: {
-    boxWidth: 10, boxHeight: 10, usePointStyle: true, pointStyle: 'circle',
-    color: COLORS.textDim,
-    font: { family: "'Barlow Condensed', sans-serif", size: 11, weight: 500 },
-    padding: 14
-  }
-};
-
-// ============================================================
-// PILL HELPERS
-// ============================================================
 function pill(dotClass, label, value) {
   const dot = dotClass ? `<span class="dot ${dotClass}"></span>` : '';
   return `<div class="pill">${dot}${label}<strong>${value}</strong></div>`;
 }
 
-// ============================================================
-// [01] SHOTS
-// ============================================================
-(function buildShots() {
-  const laoisCum = cumCount(isShot('Laois'));
-  const oppCum = cumCount(isShot('Opposition'));
-  const laoisTot = countUpTo(isShot('Laois'), FT);
-  const oppTot = countUpTo(isShot('Opposition'), FT);
-  const laoisHT = countUpTo(isShot('Laois'), HT);
-  const oppHT = countUpTo(isShot('Opposition'), HT);
-
-  const ctx = document.getElementById('chart-shots').getContext('2d');
-  new Chart(ctx, {
+// ---- [01] SHOTS ----
+(function() {
+  const lCum = cumCount(isShot('Laois'));
+  const oCum = cumCount(isShot('Opposition'));
+  new Chart(document.getElementById('chart-shots').getContext('2d'), {
     type: 'line',
-    data: {
-      labels: CP_LABELS,
-      datasets: [
-        { label: 'Laois', data: laoisCum, borderColor: COLORS.laois, backgroundColor: 'rgba(91,141,239,0.08)', tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
-        { label: 'Carlow', data: oppCum, borderColor: COLORS.opp, backgroundColor: 'rgba(228,0,43,0.08)', tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: LEGEND_CFG,
-        tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y} shots`)
-      },
-      scales: commonScales(undefined, 'Cumulative Shots', false)
-    },
+    data: { labels: CP_LABELS, datasets: [
+      { label: 'Laois', data: lCum, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
+      { label: 'Antrim', data: oCum, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y} shots`) },
+      scales: commonScales(undefined, 'Cumulative Shots', false) },
     plugins: [htLinePlugin]
   });
-
+  const lTot = countUpTo(isShot('Laois'), FT), oTot = countUpTo(isShot('Opposition'), FT);
+  const lHT  = countUpTo(isShot('Laois'), HT),  oHT  = countUpTo(isShot('Opposition'), HT);
   document.getElementById('pills-shots').innerHTML = [
-    pill('laois', 'Laois Total', laoisTot),
-    pill('opp', 'Carlow Total', oppTot),
-    pill('laois', 'Laois HT', laoisHT),
-    pill('opp', 'Carlow HT', oppHT)
+    pill('laois','Laois Total',lTot), pill('opp','Antrim Total',oTot),
+    pill('laois','Laois HT',lHT),    pill('opp','Antrim HT',oHT)
   ].join('');
 })();
 
-// ============================================================
-// [02] OVERALL EFFICIENCY
-// ============================================================
-(function buildEff() {
-  const laoisShotsCum = cumCount(isShot('Laois'));
-  const laoisScoreCum = cumCount(isScore('Laois'));
-  const oppShotsCum   = cumCount(isShot('Opposition'));
-  const oppScoreCum   = cumCount(isScore('Opposition'));
-
-  const pct = (s, sh) => sh === 0 ? 0 : +(100 * s / sh).toFixed(1);
-  const laoisPctSeries = laoisShotsCum.map((sh, i) => pct(laoisScoreCum[i], sh));
-  const oppPctSeries   = oppShotsCum.map((sh, i) => pct(oppScoreCum[i], sh));
-
-  const ctx = document.getElementById('chart-eff').getContext('2d');
-  new Chart(ctx, {
+// ---- [02] OVERALL EFFICIENCY ----
+(function() {
+  const lSh = cumCount(isShot('Laois')), lSc = cumCount(isScore('Laois'));
+  const oSh = cumCount(isShot('Opposition')), oSc = cumCount(isScore('Opposition'));
+  const pct = (s,sh) => sh===0 ? 0 : +(100*s/sh).toFixed(1);
+  const lPct = lSh.map((sh,i) => pct(lSc[i],sh));
+  const oPct = oSh.map((sh,i) => pct(oSc[i],sh));
+  new Chart(document.getElementById('chart-eff').getContext('2d'), {
     type: 'line',
-    data: {
-      labels: CP_LABELS,
-      datasets: [
-        { label: 'Laois', data: laoisPctSeries, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois), _num: laoisScoreCum, _den: laoisShotsCum },
-        { label: 'Carlow', data: oppPctSeries, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp), _num: oppScoreCum, _den: oppShotsCum }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: LEGEND_CFG,
-        tooltip: makeTooltip(ctx => {
-          const ds = ctx.dataset;
-          const n = ds._num[ctx.dataIndex], d = ds._den[ctx.dataIndex];
-          return `${ds.label}: ${n}/${d} — ${ctx.parsed.y}%`;
-        })
-      },
-      scales: commonScales(100, 'Efficiency %', true)
-    },
+    data: { labels: CP_LABELS, datasets: [
+      { label: 'Laois', data: lPct, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois), _num: lSc, _den: lSh },
+      { label: 'Antrim', data: oPct, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp), _num: oSc, _den: oSh }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => { const n=ctx.dataset._num[ctx.dataIndex],d=ctx.dataset._den[ctx.dataIndex]; return `${ctx.dataset.label}: ${n}/${d} — ${ctx.parsed.y}%`; }) },
+      scales: commonScales(100, 'Efficiency %', true) },
     plugins: [htLinePlugin]
   });
-
-  // Pills
-  const lHTn = countUpTo(isScore('Laois'), HT), lHTd = countUpTo(isShot('Laois'), HT);
-  const oHTn = countUpTo(isScore('Opposition'), HT), oHTd = countUpTo(isShot('Opposition'), HT);
-  const lFTn = countUpTo(isScore('Laois'), FT), lFTd = countUpTo(isShot('Laois'), FT);
-  const oFTn = countUpTo(isScore('Opposition'), FT), oFTd = countUpTo(isShot('Opposition'), FT);
-  const fmt = (n,d) => `${n}/${d} · ${d ? (100*n/d).toFixed(1) : 0}%`;
-
+  const lHTn=countUpTo(isScore('Laois'),HT), lHTd=countUpTo(isShot('Laois'),HT);
+  const oHTn=countUpTo(isScore('Opposition'),HT), oHTd=countUpTo(isShot('Opposition'),HT);
+  const lFTn=countUpTo(isScore('Laois'),FT), lFTd=countUpTo(isShot('Laois'),FT);
+  const oFTn=countUpTo(isScore('Opposition'),FT), oFTd=countUpTo(isShot('Opposition'),FT);
+  const fmt=(n,d)=>`${n}/${d} · ${d?(100*n/d).toFixed(1):0}%`;
   document.getElementById('pills-eff').innerHTML = [
-    pill('laois', 'Laois HT', fmt(lHTn, lHTd)),
-    pill('opp', 'Carlow HT', fmt(oHTn, oHTd)),
-    pill('laois', 'Laois FT', fmt(lFTn, lFTd)),
-    pill('opp', 'Carlow FT', fmt(oFTn, oFTd))
+    pill('laois','Laois HT',fmt(lHTn,lHTd)), pill('opp','Antrim HT',fmt(oHTn,oHTd)),
+    pill('laois','Laois FT',fmt(lFTn,lFTd)), pill('opp','Antrim FT',fmt(oFTn,oFTd))
   ].join('');
 })();
 
-// ============================================================
-// [03] PLAY EFFICIENCY
-// ============================================================
-(function buildPlayEff() {
-  const lShotsCum = cumCount(isPlayShot('Laois'));
-  const lScoreCum = cumCount(isPlayScore('Laois'));
-  const oShotsCum = cumCount(isPlayShot('Opposition'));
-  const oScoreCum = cumCount(isPlayScore('Opposition'));
-  const pct = (s, sh) => sh === 0 ? 0 : +(100 * s / sh).toFixed(1);
-  const lSeries = lShotsCum.map((sh, i) => pct(lScoreCum[i], sh));
-  const oSeries = oShotsCum.map((sh, i) => pct(oScoreCum[i], sh));
-
-  const ctx = document.getElementById('chart-playeff').getContext('2d');
-  new Chart(ctx, {
+// ---- [03] PLAY EFFICIENCY ----
+(function() {
+  const lSh = cumCount(isPlayShot('Laois')), lSc = cumCount(isPlayScore('Laois'));
+  const oSh = cumCount(isPlayShot('Opposition')), oSc = cumCount(isPlayScore('Opposition'));
+  const pct = (s,sh) => sh===0 ? 0 : +(100*s/sh).toFixed(1);
+  new Chart(document.getElementById('chart-playeff').getContext('2d'), {
     type: 'line',
-    data: {
-      labels: CP_LABELS,
-      datasets: [
-        { label: 'Laois', data: lSeries, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois), _num: lScoreCum, _den: lShotsCum },
-        { label: 'Carlow', data: oSeries, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp), _num: oScoreCum, _den: oShotsCum }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: LEGEND_CFG,
-        tooltip: makeTooltip(ctx => {
-          const ds = ctx.dataset;
-          const n = ds._num[ctx.dataIndex], d = ds._den[ctx.dataIndex];
-          return `${ds.label}: ${n}/${d} — ${ctx.parsed.y}%`;
-        })
-      },
-      scales: commonScales(100, 'Play Efficiency %', true)
-    },
+    data: { labels: CP_LABELS, datasets: [
+      { label: 'Laois', data: lSh.map((sh,i)=>pct(lSc[i],sh)), borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois), _num: lSc, _den: lSh },
+      { label: 'Antrim', data: oSh.map((sh,i)=>pct(oSc[i],sh)), borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp), _num: oSc, _den: oSh }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => { const n=ctx.dataset._num[ctx.dataIndex],d=ctx.dataset._den[ctx.dataIndex]; return `${ctx.dataset.label}: ${n}/${d} — ${ctx.parsed.y}%`; }) },
+      scales: commonScales(100, 'Play Efficiency %', true) },
     plugins: [htLinePlugin]
   });
-
-  // 1H / 2H pills per team — single non-wrapping row
-  const halves = (team) => {
-    const h1s = countBetween(isPlayShot(team), 0, HT);
-    const h1sc = countBetween(isPlayScore(team), 0, HT);
-    const h2s = countBetween(isPlayShot(team), HT, FT);
-    const h2sc = countBetween(isPlayScore(team), HT, FT);
-    return {
-      h1: h1s ? `${h1sc}/${h1s} · ${(100*h1sc/h1s).toFixed(1)}%` : '0/0 · 0%',
-      h2: h2s ? `${h2sc}/${h2s} · ${(100*h2sc/h2s).toFixed(1)}%` : '0/0 · 0%'
-    };
+  const halves = team => {
+    const h1s=countBetween(isPlayShot(team),0,HT), h1sc=countBetween(isPlayScore(team),0,HT);
+    const h2s=countBetween(isPlayShot(team),HT,FT), h2sc=countBetween(isPlayScore(team),HT,FT);
+    return { h1: h1s?`${h1sc}/${h1s} · ${(100*h1sc/h1s).toFixed(1)}%`:'0/0 · 0%', h2: h2s?`${h2sc}/${h2s} · ${(100*h2sc/h2s).toFixed(1)}%`:'0/0 · 0%' };
   };
-  const L = halves('Laois'), O = halves('Opposition');
-
+  const L=halves('Laois'), O=halves('Opposition');
   document.getElementById('pills-playeff').innerHTML = [
-    pill('laois', 'Laois 1H', L.h1),
-    pill('opp', 'Carlow 1H', O.h1),
-    pill('laois', 'Laois 2H', L.h2),
-    pill('opp', 'Carlow 2H', O.h2)
+    pill('laois','Laois 1H',L.h1), pill('opp','Antrim 1H',O.h1),
+    pill('laois','Laois 2H',L.h2), pill('opp','Antrim 2H',O.h2)
   ].join('');
 })();
 
-// ============================================================
-// [04] PRODUCTIVITY
-// ============================================================
-(function buildProductivity() {
-  const calc = (team, lo, hi) => {
-    const g = EVENTS.filter(e =>
-      (e.c === `${team} Shots From Play` || e.c === `${team} Shots From Placed`)
-      && e.l.includes('Goal') && e.m > lo && e.m <= hi
-    ).length;
-    const p = EVENTS.filter(e =>
-      (e.c === `${team} Shots From Play` || e.c === `${team} Shots From Placed`)
-      && e.l.includes('Point') && e.m > lo && e.m <= hi
-    ).length;
-    const pts = g*3 + p;
-    const poss = EVENTS.filter(e => e.c === `${team} Possessions` && e.m > lo && e.m <= hi).length;
-    const prod = poss === 0 ? 0 : (pts / poss) * 10;
-    return { g, p, pts, poss, prod };
-  };
+// ---- [04] PRODUCTIVITY ----
+(function() {
+  // Possessions: Laois 1H 38, 2H 38, total 76 | Antrim 1H 36, 2H 32, total 68
+  // Points from XML: Laois 1H 1G 11P=14, 2H 1G 12P=15, Overall 29
+  //                  Antrim 1H 0G 15P=15, 2H 0G 7P=7, Overall 22
 
-  const renderRow = (team, target, isOpp) => {
-    const rows = [
-      { lbl: '1st Half', ...calc(team, 0, HT), overall: false },
-      { lbl: '2nd Half', ...calc(team, HT, FT), overall: false },
-      { lbl: 'Overall', ...calc(team, 0, 999), overall: true }
-    ];
-    document.getElementById(target).innerHTML = rows.map(r => `
-      <div class="prod-card ${r.overall ? (isOpp ? 'overall-opp' : 'overall') : ''}">
+  const laoisRows = [
+    { lbl: '1st Half', pts: 14, poss: 38, overall: false },
+    { lbl: '2nd Half', pts: 15, poss: 38, overall: false },
+    { lbl: 'Overall',  pts: 29, poss: 76, overall: true }
+  ];
+  const antrimRows = [
+    { lbl: '1st Half', pts: 15, poss: 36, overall: false },
+    { lbl: '2nd Half', pts: 7,  poss: 32, overall: false },
+    { lbl: 'Overall',  pts: 22, poss: 68, overall: true }
+  ];
+
+  const renderRows = (rows, target, isOpp) => {
+    document.getElementById(target).innerHTML = rows.map(r => {
+      const prod = (r.pts / r.poss * 10).toFixed(1);
+      const cls  = r.overall ? (isOpp ? 'overall-opp' : 'overall') : '';
+      return `<div class="prod-card ${cls}">
         <div class="period">${r.lbl}</div>
-        <div class="number">${r.prod.toFixed(1)}</div>
+        <div class="number">${prod}</div>
         <div class="sub">Points: ${r.pts} · Possessions: ${r.poss}</div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
   };
 
-  renderRow('Laois', 'prod-laois', false);
-  renderRow('Opposition', 'prod-opp', true);
+  renderRows(laoisRows, 'prod-laois', false);
+  renderRows(antrimRows, 'prod-opp', true);
 })();
 
-// ============================================================
-// [05] TURNOVERS
-// ============================================================
-(function buildTO() {
-  const laoisCum = cumCount(e => e.c === 'Laois Turnovers');
-  const oppCum = cumCount(e => e.c === 'Oppposition Turnovers');
-  const laoisTot = countUpTo(e => e.c === 'Laois Turnovers', FT);
-  const oppTot = countUpTo(e => e.c === 'Oppposition Turnovers', FT);
-  const laois2H = countBetween(e => e.c === 'Laois Turnovers', HT, FT);
-  const opp2H = countBetween(e => e.c === 'Oppposition Turnovers', HT, FT);
-
-  const ctx = document.getElementById('chart-to').getContext('2d');
-  new Chart(ctx, {
+// ---- [05] TURNOVERS ----
+(function() {
+  const lCum = cumCount(e => e.c==='Laois Turnovers');
+  const oCum = cumCount(e => e.c==='Oppposition Turnovers');
+  new Chart(document.getElementById('chart-to').getContext('2d'), {
     type: 'line',
-    data: {
-      labels: CP_LABELS,
-      datasets: [
-        { label: 'Laois', data: laoisCum, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
-        { label: 'Carlow', data: oppCum, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: LEGEND_CFG,
-        tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`)
-      },
-      scales: commonScales(undefined, 'Cumulative Turnovers', false)
-    },
+    data: { labels: CP_LABELS, datasets: [
+      { label: 'Laois', data: lCum, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
+      { label: 'Antrim', data: oCum, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`) },
+      scales: commonScales(undefined, 'Cumulative Turnovers', false) },
     plugins: [htLinePlugin]
   });
-
+  const lTot=countUpTo(e=>e.c==='Laois Turnovers',FT), oTot=countUpTo(e=>e.c==='Oppposition Turnovers',FT);
+  const l2H=countBetween(e=>e.c==='Laois Turnovers',HT,FT), o2H=countBetween(e=>e.c==='Oppposition Turnovers',HT,FT);
   document.getElementById('pills-to').innerHTML = [
-    pill('laois', 'Laois Total', laoisTot),
-    pill('opp', 'Carlow Total', oppTot),
-    pill('laois', 'Laois 2H', laois2H),
-    pill('opp', 'Carlow 2H', opp2H)
+    pill('laois','Laois Total',lTot), pill('opp','Antrim Total',oTot),
+    pill('laois','Laois 2H',l2H),     pill('opp','Antrim 2H',o2H)
   ].join('');
 })();
 
-// ============================================================
-// [06] FOULS
-// ============================================================
-(function buildFouls() {
-  const laoisCum = cumCount(e => e.c === 'Laois Fouls');
-  const oppCum = cumCount(e => e.c === 'Opposition Fouls');
-  const laoisTot = countUpTo(e => e.c === 'Laois Fouls', FT);
-  const oppTot = countUpTo(e => e.c === 'Opposition Fouls', FT);
-  const laoisHT = countUpTo(e => e.c === 'Laois Fouls', HT);
-  const oppHT = countUpTo(e => e.c === 'Opposition Fouls', HT);
-  const laois2H = countBetween(e => e.c === 'Laois Fouls', HT, FT);
-  const opp2H = countBetween(e => e.c === 'Opposition Fouls', HT, FT);
-
-  const ctx = document.getElementById('chart-fouls').getContext('2d');
-  new Chart(ctx, {
+// ---- [05] FOULS ----
+(function() {
+  const lCum = cumCount(e => e.c==='Laois Fouls');
+  const oCum = cumCount(e => e.c==='Opposition Fouls');
+  new Chart(document.getElementById('chart-fouls').getContext('2d'), {
     type: 'line',
-    data: {
-      labels: CP_LABELS,
-      datasets: [
-        { label: 'Laois', data: laoisCum, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
-        { label: 'Carlow', data: oppCum, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: LEGEND_CFG,
-        tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`)
-      },
-      scales: commonScales(undefined, 'Cumulative Fouls', false)
-    },
+    data: { labels: CP_LABELS, datasets: [
+      { label: 'Laois', data: lCum, borderColor: COLORS.laois, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.laois) },
+      { label: 'Antrim', data: oCum, borderColor: COLORS.opp, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(COLORS.opp) }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => `${ctx.dataset.label}: ${ctx.parsed.y}`) },
+      scales: commonScales(undefined, 'Cumulative Fouls', false) },
     plugins: [htLinePlugin]
   });
-
+  const lTot=countUpTo(e=>e.c==='Laois Fouls',FT),    oTot=countUpTo(e=>e.c==='Opposition Fouls',FT);
+  const lHT =countUpTo(e=>e.c==='Laois Fouls',HT),    oHT =countUpTo(e=>e.c==='Opposition Fouls',HT);
+  const l2H =countBetween(e=>e.c==='Laois Fouls',HT,FT), o2H=countBetween(e=>e.c==='Opposition Fouls',HT,FT);
   document.getElementById('pills-fouls').innerHTML = [
-    pill('laois', 'Laois Total', laoisTot),
-    pill('opp', 'Carlow Total', oppTot),
-    pill('laois', 'Laois HT', laoisHT),
-    pill('opp', 'Carlow HT', oppHT),
-    pill('laois', 'Laois 2H', laois2H),
-    pill('opp', 'Carlow 2H', opp2H)
+    pill('laois','Laois Total',lTot), pill('opp','Antrim Total',oTot),
+    pill('laois','Laois HT',lHT),     pill('opp','Antrim HT',oHT),
+    pill('laois','Laois 2H',l2H),     pill('opp','Antrim 2H',o2H)
   ].join('');
 })();
 
-// ============================================================
-// [07] PUCKOUTS
-// ============================================================
-(function buildPuckouts() {
+// ---- [06] PUCKOUTS ----
+(function() {
   function analyze(teamCode, ownName, oppName) {
     const pucks = EVENTS.filter(e => e.c === teamCode);
     const total = pucks.length;
     const ownWon = pucks.filter(p => p.l.includes(`${ownName} Won`)).length;
     const oppWon = pucks.filter(p => p.l.includes(`${oppName} Won`)).length;
-
     const byLen = {};
     ['Short','Medium','Long'].forEach(len => {
       const arr = pucks.filter(p => p.l.includes(len));
@@ -1187,7 +618,6 @@ function pill(dotClass, label, value) {
       const uncont = arr.filter(p => p.l.includes('Uncontested')).length;
       byLen[len] = { total: arr.length, won, cont, uncont, pct: arr.length ? (100*won/arr.length) : 0 };
     });
-
     const byContest = {};
     ['Contested','Uncontested'].forEach(cs => {
       const arr = pucks.filter(p => p.l.includes(cs));
@@ -1195,50 +625,31 @@ function pill(dotClass, label, value) {
       const lost = arr.filter(p => p.l.includes(`${oppName} Won`)).length;
       byContest[cs] = { total: arr.length, won, lost, pct: arr.length ? (100*won/arr.length) : 0 };
     });
-
-    const howWon = {};
-    ['Clean','Broken','Free','Sideline'].forEach(h => {
-      howWon[h] = pucks.filter(p => p.l.includes(`${ownName} Won ${h}`)).length;
-    });
-    const howLost = {};
-    ['Clean','Broken','Free','Sideline'].forEach(h => {
-      howLost[h] = pucks.filter(p => p.l.includes(`${oppName} Won ${h}`)).length;
-    });
-
-    return { total, ownWon, oppWon, byLen, byContest, howWon, howLost };
+    return { total, ownWon, oppWon, byLen, byContest };
   }
 
-  const laoisP = analyze('Laois Puckouts', 'Laois', 'Opposition');
-  const oppP = analyze('Opposition Puckouts', 'Opposition', 'Laois');
+  const laoisP = analyze('Laois Puckouts','Laois','Opposition');
+  const oppP   = analyze('Opposition Puckouts','Opposition','Laois');
+  const pctStr = (n,d) => d===0 ? '0%' : `${(100*n/d).toFixed(1)}%`;
 
-  const pctStr = (n,d) => d === 0 ? '0%' : `${(100*n/d).toFixed(1)}%`;
-
-  const renderPanel = (data, teamLabel, ownLabel, dotClass) => {
-    const { total, ownWon, oppWon, byLen, byContest } = data;
+  const renderPanel = (data, teamLabel, dotClass) => {
+    const { total, ownWon, byLen, byContest } = data;
     const retPct = total ? (100*ownWon/total) : 0;
-
     const lenPills = ['Short','Medium','Long'].map(len => {
       const d = byLen[len];
       return `<div class="pill"><span class="dot ${dotClass}"></span>${len}<strong>${d.total}</strong> · ${d.pct.toFixed(0)}% · C${d.cont}/U${d.uncont}</div>`;
     }).join('');
-
     return `
       <div class="puck-panel">
         <h3 class="${dotClass}"><span class="dot"></span>${teamLabel} Puckouts</h3>
-
         <div class="puck-subhead">Overall</div>
         <div class="puck-total">Total taken <strong>${total}</strong></div>
         <div class="puck-hero">
-          <div>
-            <span class="lbl">Retention</span>
-            <span class="big">${retPct.toFixed(1)}%</span>
-          </div>
+          <div><span class="lbl">Retention</span><span class="big">${retPct.toFixed(1)}%</span></div>
           <span class="frac">${ownWon} / ${total}</span>
         </div>
-
         <div class="puck-subhead">By Length</div>
         <div class="puck-row">${lenPills}</div>
-
         <div class="puck-subhead">Breakdown</div>
         <div class="puck-kv">
           <div class="k">Contested total</div><div class="v">${byContest.Contested.total}</div>
@@ -1248,162 +659,131 @@ function pill(dotClass, label, value) {
           <div class="k">Uncontested won / lost</div><div class="v">${byContest.Uncontested.won} / ${byContest.Uncontested.lost}</div>
           <div class="k">Uncontested retention</div><div class="v">${byContest.Uncontested.pct.toFixed(0)}%</div>
         </div>
-      </div>
-    `;
+      </div>`;
   };
 
   document.getElementById('puck-panels').innerHTML =
-    renderPanel(laoisP, 'Laois', 'Laois', 'laois') +
-    renderPanel(oppP, 'Carlow', 'Opposition', 'opp');
+    renderPanel(laoisP,'Laois','laois') + renderPanel(oppP,'Antrim','opp');
 
-  // Summary row
-  const laoisWonOppPO_n = oppP.oppWon; // Laois won X of Opp's (from Opp panel, "oppWon" = Laois Won)
-  const laoisWonOppPO_d = oppP.total;
-  const oppWonLaoisPO_n = laoisP.oppWon; // Opposition won X of Laois's
-  const oppWonLaoisPO_d = laoisP.total;
+  const laoisWonOpp = oppP.oppWon, oppWonLaois = laoisP.oppWon;
   document.getElementById('puck-summary').innerHTML = `
-    <div><span class="dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--laois);margin-right:8px"></span>Laois won <strong>${laoisWonOppPO_n}</strong> of Carlow's <strong>${laoisWonOppPO_d}</strong> puckouts · <strong>${pctStr(laoisWonOppPO_n, laoisWonOppPO_d)}</strong></div>
-    <div><span class="dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--opp);margin-right:8px"></span>Carlow won <strong>${oppWonLaoisPO_n}</strong> of Laois's <strong>${oppWonLaoisPO_d}</strong> puckouts · <strong>${pctStr(oppWonLaoisPO_n, oppWonLaoisPO_d)}</strong></div>
-  `;
+    <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--laois);margin-right:8px"></span>Laois won <strong>${laoisWonOpp}</strong> of Antrim's <strong>${oppP.total}</strong> puckouts · <strong>${pctStr(laoisWonOpp,oppP.total)}</strong></div>
+    <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--opp);margin-right:8px"></span>Antrim won <strong>${oppWonLaois}</strong> of Laois's <strong>${laoisP.total}</strong> puckouts · <strong>${pctStr(oppWonLaois,laoisP.total)}</strong></div>`;
 
-  // Chart helper for puckouts
-  function puckChart(canvasId, teamCode, ownName, soloColor, darkColor, teamLabel) {
+  // Overall contested — all contested puckouts from both teams combined
+  const allContested = EVENTS.filter(e => (e.c==='Laois Puckouts' || e.c==='Opposition Puckouts') && e.l.includes('Contested'));
+  const totalContested = allContested.length;
+  const laoisWonContest  = allContested.filter(e => e.l.includes('Laois Won')).length;
+  const antrimWonContest = allContested.filter(e => e.l.includes('Opposition Won')).length;
+  const laoisContPct  = totalContested ? (100*laoisWonContest/totalContested).toFixed(1) : '0.0';
+  const antrimContPct = totalContested ? (100*antrimWonContest/totalContested).toFixed(1) : '0.0';
+  const laoisIsWinner = laoisWonContest >= antrimWonContest;
+
+  document.getElementById('puck-contest-overall').innerHTML = `
+    <div class="puck-contest-card ${laoisIsWinner ? 'winner' : ''}">
+      <div class="pc-team"><span class="dot" style="background:var(--laois)"></span>Laois</div>
+      <div class="pc-num">${laoisWonContest}</div>
+      <div class="pc-sub">of ${totalContested} contested · ${laoisContPct}%</div>
+    </div>
+    <div class="puck-contest-card ${!laoisIsWinner ? 'winner' : ''}">
+      <div class="pc-team"><span class="dot" style="background:var(--opp)"></span>Antrim</div>
+      <div class="pc-num">${antrimWonContest}</div>
+      <div class="pc-sub">of ${totalContested} contested · ${antrimContPct}%</div>
+    </div>`;
+
+  function puckChart(canvasId, teamCode, ownName, darkColor, pillsId, dotClass, teamLabel) {
     const takenCum = cumCount(e => e.c === teamCode);
-    const wonCum = cumCount(e => e.c === teamCode && e.l.includes(`${ownName} Won`));
-
-    const ctx = document.getElementById(canvasId).getContext('2d');
-    new Chart(ctx, {
+    const wonCum   = cumCount(e => e.c === teamCode && e.l.includes(`${ownName} Won`));
+    new Chart(document.getElementById(canvasId).getContext('2d'), {
       type: 'line',
-      data: {
-        labels: CP_LABELS,
-        datasets: [
-          {
-            label: 'Taken',
-            data: takenCum,
-            borderColor: '#ffffff',
-            backgroundColor: '#ffffff',
-            borderDash: [6, 4],
-            tension: 0.3, borderWidth: 2, fill: false,
-            pointRadius: 4, pointHoverRadius: 6,
-            pointBackgroundColor: '#ffffff',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 0
-          },
-          {
-            label: 'Won',
-            data: wonCum,
-            borderColor: darkColor,
-            backgroundColor: darkColor,
-            tension: 0.3, borderWidth: 2, fill: false,
-            ...pointStyle(darkColor)
-          }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: LEGEND_CFG,
-          tooltip: makeTooltip(ctx => {
-            // Custom: on the first tooltip item, return a combined summary; skip second
-            const ds = ctx.dataset.label;
-            const idx = ctx.dataIndex;
-            const taken = takenCum[idx], won = wonCum[idx];
-            const ret = taken ? (100*won/taken).toFixed(1) : '0.0';
-            if (ds === 'Taken') return `Taken: ${taken}`;
-            return `Won: ${won} · Retention: ${ret}%`;
-          })
-        },
-        scales: commonScales(undefined, 'Cumulative Puckouts', false)
-      },
+      data: { labels: CP_LABELS, datasets: [
+        { label: 'Taken', data: takenCum, borderColor: '#ffffff', backgroundColor: '#ffffff', borderDash: [6,4], tension: 0.3, borderWidth: 2, fill: false, pointRadius: 4, pointHoverRadius: 6, pointBackgroundColor: '#ffffff', pointBorderColor: '#ffffff', pointBorderWidth: 0 },
+        { label: 'Won', data: wonCum, borderColor: darkColor, backgroundColor: darkColor, tension: 0.3, borderWidth: 2, fill: false, ...pointStyle(darkColor) }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+        plugins: { legend: LEGEND_CFG, tooltip: makeTooltip(ctx => {
+          const idx=ctx.dataIndex, taken=takenCum[idx], won=wonCum[idx], ret=taken?(100*won/taken).toFixed(1):'0.0';
+          return ctx.dataset.label==='Taken' ? `Taken: ${taken}` : `Won: ${won} · Retention: ${ret}%`;
+        })},
+        scales: commonScales(undefined,'Cumulative Puckouts',false) },
       plugins: [htLinePlugin]
     });
-  }
-
-  puckChart('chart-puck-laois', 'Laois Puckouts', 'Laois', COLORS.laoisSoft, COLORS.laois, 'Laois');
-  puckChart('chart-puck-opp', 'Opposition Puckouts', 'Opposition', COLORS.oppSoft, COLORS.opp, 'Carlow');
-
-  // Pills
-  const lRet = laoisP.total ? (100*laoisP.ownWon/laoisP.total).toFixed(1) : 0;
-  const oRet = oppP.total ? (100*oppP.ownWon/oppP.total).toFixed(1) : 0;
-
-  document.getElementById('pills-puck-laois').innerHTML = [
-    pill('laois', 'Taken', laoisP.total),
-    pill('laois', 'Won', laoisP.ownWon),
-    pill('laois', 'Retention', lRet + '%')
-  ].join('');
-  document.getElementById('pills-puck-opp').innerHTML = [
-    pill('opp', 'Taken', oppP.total),
-    pill('opp', 'Won', oppP.ownWon),
-    pill('opp', 'Retention', oRet + '%')
-  ].join('');
-
-  // ---- Contested puckout charts ----
-  function contestedPuckChart(canvasId, teamCode, ownName, teamColor, pillsId, dotClass) {
-    const contTestedTaken = cumCount(e => e.c === teamCode && e.l.includes('Contested'));
-    const contTestedWon   = cumCount(e => e.c === teamCode && e.l.includes('Contested') && e.l.includes(`${ownName} Won`));
-
-    const ctx = document.getElementById(canvasId).getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: CP_LABELS,
-        datasets: [
-          {
-            label: 'Contested Taken',
-            data: contTestedTaken,
-            borderColor: '#ffffff',
-            backgroundColor: '#ffffff',
-            borderDash: [5, 4],
-            tension: 0.3, borderWidth: 2, fill: false,
-            pointRadius: 4, pointHoverRadius: 6,
-            pointBackgroundColor: '#ffffff',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 0
-          },
-          {
-            label: 'Contested Won',
-            data: contTestedWon,
-            borderColor: teamColor,
-            backgroundColor: teamColor,
-            tension: 0.3, borderWidth: 2.5, fill: false,
-            pointRadius: 4, pointHoverRadius: 6,
-            pointBackgroundColor: teamColor,
-            pointBorderColor: teamColor,
-            pointBorderWidth: 0
-          }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: LEGEND_CFG,
-          tooltip: makeTooltip(ctx => {
-            const idx = ctx.dataIndex;
-            const taken = contTestedTaken[idx], won = contTestedWon[idx];
-            const ret = taken ? (100*won/taken).toFixed(1) : '0.0';
-            if (ctx.dataset.label === 'Contested Taken') return `Contested Taken: ${taken}`;
-            return `Contested Won: ${won} · Retention: ${ret}%`;
-          })
-        },
-        scales: commonScales(undefined, 'Cumulative Contested', false)
-      },
-      plugins: [htLinePlugin]
-    });
-
-    const totTaken = contTestedTaken[contTestedTaken.length - 1];
-    const totWon   = contTestedWon[contTestedWon.length - 1];
-    const ret = totTaken ? (100*totWon/totTaken).toFixed(1) : '0.0';
+    const tot=takenCum[takenCum.length-1], won=wonCum[wonCum.length-1];
+    const ret=tot?(100*won/tot).toFixed(1):'0.0';
     document.getElementById(pillsId).innerHTML = [
-      pill(dotClass, 'Contested Taken', totTaken),
-      pill(dotClass, 'Contested Won', totWon),
-      pill(dotClass, 'Retention', ret + '%')
+      pill(dotClass,'Taken',tot), pill(dotClass,'Won',won), pill(dotClass,'Retention',ret+'%')
     ].join('');
   }
 
-  contestedPuckChart('chart-puck-cont-laois', 'Laois Puckouts',      'Laois',      COLORS.laois, 'pills-puck-cont-laois', 'laois');
-  contestedPuckChart('chart-puck-cont-opp',   'Opposition Puckouts', 'Opposition', COLORS.opp,   'pills-puck-cont-opp',   'opp');
+  function contestedChart(canvasId, teamCode, ownName, oppName, teamColor, oppColor, pillsId, dotClass, oppDotClass, teamLabel, oppLabel) {
+    const takenCum  = cumCount(e => e.c===teamCode && e.l.includes('Contested'));
+    const ownWonCum = cumCount(e => e.c===teamCode && e.l.includes('Contested') && e.l.includes(`${ownName} Won`));
+    const oppWonCum = cumCount(e => e.c===teamCode && e.l.includes('Contested') && e.l.includes(`${oppName} Won`));
+
+    new Chart(document.getElementById(canvasId).getContext('2d'), {
+      type: 'line',
+      data: { labels: CP_LABELS, datasets: [
+        {
+          label: 'Contested Taken',
+          data: takenCum,
+          borderColor: '#ffffff', backgroundColor: '#ffffff',
+          borderDash: [5,4], tension: 0.3, borderWidth: 1.5, fill: false,
+          pointRadius: 3, pointHoverRadius: 5,
+          pointBackgroundColor: '#ffffff', pointBorderColor: '#ffffff', pointBorderWidth: 0
+        },
+        {
+          label: `${teamLabel} Won`,
+          data: ownWonCum,
+          borderColor: teamColor, backgroundColor: teamColor,
+          tension: 0.3, borderWidth: 2.5, fill: false,
+          pointRadius: 4, pointHoverRadius: 6,
+          pointBackgroundColor: teamColor, pointBorderColor: 'rgba(255,255,255,0.5)', pointBorderWidth: 1.5
+        },
+        {
+          label: `${oppLabel} Won`,
+          data: oppWonCum,
+          borderColor: oppColor, backgroundColor: oppColor,
+          tension: 0.3, borderWidth: 2.5, fill: false,
+          pointRadius: 4, pointHoverRadius: 6,
+          pointBackgroundColor: oppColor, pointBorderColor: 'rgba(255,255,255,0.5)', pointBorderWidth: 1.5
+        }
+      ]},
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: LEGEND_CFG,
+          tooltip: makeTooltip(ctx => {
+            const idx = ctx.dataIndex;
+            const taken = takenCum[idx], own = ownWonCum[idx], opp = oppWonCum[idx];
+            const ownRet = taken ? (100*own/taken).toFixed(1) : '0.0';
+            const oppRet = taken ? (100*opp/taken).toFixed(1) : '0.0';
+            if (ctx.dataset.label === 'Contested Taken') return `Contested Taken: ${taken}`;
+            if (ctx.datasetIndex === 1) return `${teamLabel} Won: ${own} · ${ownRet}%`;
+            return `${oppLabel} Won: ${opp} · ${oppRet}%`;
+          })
+        },
+        scales: commonScales(undefined,'Cumulative Contested',false)
+      },
+      plugins: [htLinePlugin]
+    });
+
+    const totTaken  = takenCum[takenCum.length-1];
+    const totOwn    = ownWonCum[ownWonCum.length-1];
+    const totOpp    = oppWonCum[oppWonCum.length-1];
+    const ownRet = totTaken ? (100*totOwn/totTaken).toFixed(1) : '0.0';
+    const oppRet = totTaken ? (100*totOpp/totTaken).toFixed(1) : '0.0';
+    document.getElementById(pillsId).innerHTML = [
+      pill('', 'Contested', totTaken),
+      pill(dotClass,    `${teamLabel} Won`, `${totOwn} · ${ownRet}%`),
+      pill(oppDotClass, `${oppLabel} Won`,  `${totOpp} · ${oppRet}%`)
+    ].join('');
+  }
+
+  puckChart('chart-puck-laois','Laois Puckouts','Laois',COLORS.laois,'pills-puck-laois','laois','Laois');
+  puckChart('chart-puck-opp','Opposition Puckouts','Opposition',COLORS.opp,'pills-puck-opp','opp','Antrim');
+  contestedChart('chart-puck-cont-laois','Laois Puckouts','Laois','Opposition',COLORS.laois,COLORS.opp,'pills-puck-cont-laois','laois','opp','Laois','Antrim');
+  contestedChart('chart-puck-cont-opp','Opposition Puckouts','Opposition','Laois',COLORS.opp,COLORS.laois,'pills-puck-cont-opp','opp','laois','Antrim','Laois');
 })();
 
 </script>
